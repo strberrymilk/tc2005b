@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Camila Cuevas</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="portafolio.css">
+</head>
+
+<body class="container-fluid p-0">
+    <header class="d-flex justify-content-center py-3">
+        <ul class="nav nav-pills">
+            <li class="nav-item"><a href="#perfil" class="nav-link" aria-current="page">Perfil</a></li>
+            <li class="nav-item"><a href="#secciones" class="nav-link">Experiencia</a></li>
+            <li class="nav-item"><a href="#proyectos" class="nav-link">Proyectos</a></li>
+            <li class="nav-item"><a href="#formulario" class="nav-link">Formulario</a></li>
+            <li class="nav-item"><a href="#testimonios" class="nav-link">Preguntas</a></li>
+            <li class="nav-item"><a href="#referencias" class="nav-link">Referencias</a></li>
+            <li class="nav-item"><a href="#contactoo" class="nav-link">Contacto</a></li>
+        </ul>
+    </header>
+    <!-- Perfil (foto, descripción, imagen bonita) -->
+    <div id="perfil" class="container-fluid px-3 py-2">
+        <div class="row flex-lg-row-reverse align-items-center justify-content-center g-4 py-1">
+          <div class="col-6 col-sm-4 col-lg-4 justify-content-center align-items-center align-content-center">
+            <img src="fotodeperfilowo.png" class="mx-lg-auto img-fluid img-thumbnail rounded-circle" width="275" height="275" loading="lazy">
+          </div>
+          <div class="col-lg-8 p-4">
+            <h1 id="typewriter" class="display-5 fw-bold text-body-emphasis mb-3">Soy Camila Cuevas</h1>
+            <p class="lead">Hola! Este portafolio ya lo había desarrollado antes. De hecho, fue uno de mis primeros sitios web. Por lo que decidí usar esta estructura como base para el Laboratorio 0 y como muestra viva de mi trabajo y experiencia. Algunas partes las dejé igual, otras las adapté al contenido solicitado. Espero les guste :)</p>
+          </div>
+        </div>
+      </div>
+    <!-- Secciones de mi página / links a otras páginas -->
+    <div id="secciones" class="container my-5 text-bg-dark">
+        <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center border shadow-lg">
+            <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
+                <h1 class="display-4 fw-bold lh-1">Mis Experiencias</h1>
+                <p class="lead">Soy estudiante de 4to semestre de <strong>Ingeniería en Tecnologías Computacionales</strong> en el Tec de Monterrey campus Querétaro, con la beca del 100% de <strong>Líderes del Mañana</strong>. He sido ganadora de diversas competencias de matemáticas y entrenadora de las nuevas generaciones de olímpicos. Mi mejor experiencia profesional ha sido ser <strong>Explorer Intern de Microsoft</strong> en verano de 2025, en Redmond, Washington.</p>
+            </div>
+            <div class="col-lg-4 offset-lg-1 p-0 overflow-hidden shadow-lg">
+                <img id="fotoexperiencia" class="rounded-lg-3" src="tecnologías.png" width="250">
+            </div>
+        </div>
+    </div>
+        <section class="container my-5 text-center">
+            <div class="row rounded-3 shadow-lg">
+                <div class="col-12 col-sm-12 col-lg-4 p-3 des">
+                    <h5>Desarrollo Web</h5>
+                    <p>Fui parte del programa Tecnolochicas PRO Summer Camp 2023, donde adquirí habilidades para desarrollar sitios web funcionales y responsivos mediante 3 lenguajes y un framework:</p>
+                    <span class="badge rounded-pill sp1">HTML</span>
+                    <span class="badge rounded-pill sp1">CSS</span>
+                    <span class="badge rounded-pill sp1">JavaScript</span>
+                    <span class="badge rounded-pill sp1">Bootstrap</span>
+                </div>
+                <div class="owo col-12 col-sm-12 col-lg-4 p-3">
+                    <h5>Olimpiadas de Matemáticas <button><i class="bi bi-hand-index-thumb icono" data-bs-toggle="modal" data-bs-target="#modal-olimpiadas"></i></button></h5>
+                    <p>He sido campeona en múltiples competencias de matemáticas, tanto a nivel nacional como internacional. Mis principales logros:</p>
+                    <span class="badge rounded-pill text-bg-dark">OMMEB 2020: medalla de oro</span>
+                    <span class="badge rounded-pill text-bg-dark">ONMAPS 2021: medalla de oro</span>
+                    <span class="badge rounded-pill text-bg-dark">PAGMO 2021/2022: medallas de plata</span>
+                    <span class="badge rounded-pill text-bg-dark">IGO 2021: medalla de bronce</span>
+                    <span class="badge rounded-pill text-bg-dark">OMM 2020/2021: medalla de bronce</span>
+                    <span class="badge rounded-pill text-bg-dark">OMM 2022: medalla de plata</span>
+                    <span class="badge rounded-pill text-bg-dark">EGMO 2023: en Eslovenia</span>
+                    <span class="badge rounded-pill text-bg-dark">ONMAPS 2023: Entrenadora de Tamaulipas</span>
+                    <span class="badge rounded-pill text-bg-dark">ONMAPS 2023: Evaluadora de 1ro de sec</span>
+                    <span class="badge rounded-pill text-bg-dark">CNF OMM 2022/2023: medallas de oro</span>
+                </div>
+                <div class="des col-12 col-sm-12 col-lg-4 p-3">
+                    <h5>Otras competencias</h5>
+                    <p>Menciono otros logros y competencias adquiridas a lo largo de mi trayectoria STEM:</p>
+                        <span class="badge rounded-pill sp1">Mención Honorífica de Excelencia Académica</span><button><i class="bi bi-hand-index-thumb icono2" data-bs-toggle="modal" data-bs-target="#modal-mention"></i></button><br>
+                        <span class="badge rounded-pill sp1">B-Honored de todos los semestres</span><button><i class="bi bi-hand-index-thumb icono2" data-bs-toggle="modal" data-bs-target="#modal-B-Honored"></i></button><br>
+                        <span class="badge rounded-pill sp1">Liderazgo</span><br>
+                        <span class="badge rounded-pill sp1">Pensamiento crítico</span><br>
+                        <span class="badge rounded-pill sp1">Pensamiento analítico</span><br>
+                        <span class="badge rounded-pill sp1">Creatividad e ingenio</span><br>
+                        <span class="badge rounded-pill sp1">Capacidad resolutiva</span><br>
+                </div>
+            </div>
+        </section>   
+    <!-- Proyectos -->
+        <section id="proyectos" class="container rounded-3 shadow-lg my-5">
+            <div class="row py-3 justify-content-center text-center">
+                <h1 class="lh-1 py-2 fw-bold display-6 text-white text-shadow-1" id="tituloproyectos">Proyectos</h1>
+            </div>
+        <div class="row row-cols-1 row-cols-lg-3 row-cols-md-2 align-items-stretch g-4 py-3">
+            <div class="col">
+            <a href="https://gleaming-duckanoo-816362.netlify.app/" target="_blank"><div id="proyecto-1" class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg">
+                    <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+                        <h3 class="titulo-proyecto pt-5 mt-5 mb-4 display-6 lh-1 fw-bold ">TaylorInUku</h3>
+                    </div>
+                </div>
+            </div></a>
+            <div class="col">
+            <a href="https://main--harmonious-marshmallow-19e1c6.netlify.app/" target="_blank"><div id="proyecto-2" class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg">
+                    <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+                        <h3 class="titulo-proyecto pt-5 mt-5 mb-4 display-6 lh-1 fw-bold ">Clon de Google</h3>
+                    </div>
+                </div>
+            </div></a>
+            <div class="col">
+                <a href="https://matroot.netlify.app/" target="_blank"><div id="proyecto-3" class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg">
+                    <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+                        <h3 class="titulo-proyecto pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">MAT root</h3>
+                    </div>
+                </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="https://agrosensors.netlify.app/" target="_blank">
+                <div id="proyecto-4" class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg">
+                    <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+                        <h3 class="titulo-proyecto pt-5 mt-5 mb-4 display-6 lh-1 fw-bold ">AgroSensors</h3>
+                    </div>
+                </div>
+                </a>
+            </div>
+            <div class="col">
+                <div id="proyecto-5" class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg">
+                    <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+                        <h3 class="titulo-proyecto pt-5 mt-5 mb-4 display-6 lh-1 fw-bold ">Nombre Proyecto</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div id="proyecto-6" class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg">
+                    <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+                        <h3 class="titulo-proyecto pt-5 mt-5 mb-4 display-6 lh-1 fw-bold ">Nombre Proyecto</h3>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+    <!-- Preguntas -->
+    <section id="formulario">
+      <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
+        <h1 class="display-4 fw-bold lh-1">Formulario</h1>
+        <p>¡Contáctame!</p>
+        <form action="" method="post">
+          <div class="mb-3">
+            <label for="name">Nombre:</label>
+            <input type="text" id="name" name="name">
+          </div>
+          <div class="mb-3">
+            <label for="email">Correo electrónico:</label>
+            <input type="email" id="email" name="email">
+          </div>
+          <div class="mb-3">
+            <label for="message">Mensaje:</label>
+            <textarea id="message" name="message"></textarea>
+          </div>
+          <button type="submit">Enviar</button>
+        </form>
+      </div>
+    </section>
+    <section id="testimonios" class="container-fluid my-5">
+        <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center border shadow-lg">
+        <div class="row border text-bg-dark shadow-lg">
+          <h1 class="text-center fw-bold my-4">Preguntas</h1>
+          <ol>
+            <li>¿Cuál es la diferencia entre Internet y World Wide Web?</li>
+            El <strong>Internet (interconnected network)</strong> es una red global que conecta a millones de dispositivos en todo el mundo. La <strong>WWW (world Wide Web)</strong> es un sistema de información que contiene documentos de hipertexto interconectados a través de Internet. En otras palabras, la WWW es una parte del internet que permite acceder a páginas web mediante navegadores web, mientras que el internet es la infraestructura que la hace posible, al proveer de comunicación e intercambio de datos.
+            <br><br>
+            <li>¿Cuáles son las partes de un URL?</li>
+            Un <strong>URL (Uniform Resource Locator)</strong> es la dirección única de un recurso en la Web. Las partes principales de un URL son:
+            <ul>
+              <li>Protocolo/esquema: Protocolo utilizado para acceder al recurso, como HTTPS o HTTP.</li>
+              <li>Dominio/host: Servidor web donde se aloja el recurso.</li>
+              <li>*Puerto: Puerto del servidor. Suele omitirse.</li>
+              <li>Ruta/path: Ubicación del recurso en el servidor.</li>
+              <li>*Parámetros: Pares de clave-valor que se envían al servidor.</li>
+              <li>*Ancla: Otra parte del recurso que se utiliza para navegar dentro de la página.</li>
+              <li>Ejemplo: <u>https://www.example.com:80/path/to/myfile.html?key1=value1&key2=value2#SomewhereInTheDocument</li></u>
+            </ul>
+            <br>
+            <li>¿Cuál es el propósito de los métodos HTTP: GET, HEAD, POST, PUT, PATCH, DELETE?</li>
+            Un método HTTP es la instrucción que indica qué acción quiere realizar el cliente sobre un recurso del servidor.
+            <ul>
+              <li><strong>GET</strong>: Solicita datos de un recurso especificado.</li>
+              <li><strong>HEAD</strong>: Solicita los encabezados de respuesta de un recurso, sin el cuerpo.</li>
+              <li><strong>POST</strong>: Envía datos al servidor para crear o actualizar un recurso.</li>
+              <li><strong>PUT</strong>: Actualiza un recurso existente.</li>
+              <li><strong>PATCH</strong>: Realiza una actualización parcial de un recurso.</li>
+              <li><strong>DELETE</strong>: Elimina un recurso especificado.</li>
+            </ul>
+            <br>
+            <li>¿Qué método HTTP se debe utilizar al enviar un formulario HTML, por ejemplo cuando ingresas tu usuario y contraseña en algún sitio? ¿Por qué?</li>
+            <strong>POST</strong>, porque este método permite enviar datos al servidor en el cuerpo y no en la URL. Esto es especialmente importante cuando se trata de información sensible, como el usuario o contraseña. Además, POST está pensado para cambiar el estado del servidor, por ejemplo, un inicio de sesión.
+            <br><br>
+            <li>¿Qué método HTTP se utiliza cuando a través de un navegador web se accede a una página a través de un URL?</li>
+            <strong>GET</strong>, porque el navegador está solicitando datos de un recurso específico, sin enviar información adicional al servidor ni cambiar su estado.
+            <br><br>
+            <li>Un servidor web devuelve una respuesta HTTP con código <strong>200</strong>. ¿Qué significa esto? ¿Ocurrió algún error?</li>
+            El código 200 significa que la solicitud se procesó correctamente y el servidor devolvió la respuesta esperada. No ocurrió ningún error. 
+            <br><br>
+            <li>¿Es responsabilidad del desarrollador corregir un sitio web si un usuario reporta que intentó acceder al sitio y se encontró con un error <strong>404</strong>? ¿Por qué?</li>
+            Sí, porque el código de error 404 indica que el recurso solicitado no se encontró en el servidor.
+            <br><br>
+            <li>¿Es responsabilidad del desarrollador corregir un sitio web si un usuario reporta que intentó acceder al sitio y se encontró con un error <strong>500</strong>? ¿Por qué?</li>
+            Sí, porque el código de error 500 indica que hubo un problema interno en el servidor al procesar la solicitud. 
+            <br><br>
+            <li>¿Qué significa que un atributo HTML5 esté depreciado o desaprobado (deprecated)? Menciona algunos elementos de HTML 4 que en HTML5 estén desaprobados.</li>
+            Un atributo HTML5 está depreciado o desaprobado cuando ya no se recomienda su uso en el desarrollo web, generalmente porque ha sido reemplazado por una alternativa más moderna o eficiente. Algunos elementos de HTML 4 que están desaprobados en HTML5 incluyen:
+            <ul>
+              <li>center: Se usaba para centrar contenido. Ahora se recomienda usar CSS para centrar elementos.</li>
+              <li>font: Se usaba para definir el estilo de fuente. Ahora se recomienda usar CSS para este propósito.</li>
+              <li>acronym: Se usaba para definir acrónimos. Ahora se recomienda usar el elemento <abbr> o CSS.</li>
+            </ul>
+            <br>
+            <li>¿Cuáles son las diferencias principales entre <strong>HTML4</strong> y <strong>HTML5</strong>?</li>
+            HTML5 introdujo varias mejoras y nuevas características en comparación con HTML4, entre las que destacan:
+            <ul>
+              <li>Introduce nuevos elementos semánticos, como header, footer, section, entre otros.</li>
+              <li>Soporte nativo para multimedia con elementos como audio y video.</li>
+              <li>APIs para mejorar la interactividad, como geolocalización, almacenamiento local, entre otras.</li>
+              <li>Mejor soporte para gráficos y animaciones con el elemento canvas y la integración de SVG.</li>
+              <li>Formularios mejorados con nuevos tipos de entrada y atributos.</li>
+              <li>Doctype simplificado: !DOCTYPE html en lugar de la declaración larga y compleja de HTML4.</li>
+            </ul>
+            <br>
+            <li>¿Qué componentes de estructura y estilo tiene una tabla?</li>
+            La tabla tiene la etiqueta table, que es el contenedor principal. Dentro de la tabla, se pueden usar los siguientes componentes:
+            <ul>
+              <li>tr: Define una fila de la tabla.</li>
+              <li>th: Define una celda de encabezado dentro de una fila.</li>
+              <li>td: Define una celda de datos dentro de una fila.</li>
+              <li>colspan: Atributo que permite que una celda se extienda a través de varias columnas.</li>
+              <li>thead: Define el encabezado de la tabla.</li>
+              <li>tbody: Define el cuerpo de la tabla.</li>
+              <li>tfoot: Define el pie de la tabla.</li>
+              <li>caption: Define un título para la tabla.</li>
+            </ul>
+            <br>
+            <li>¿Qué tanto soporte HTML5 tiene el navegador que utilizas?</li>
+            526/555, Edge.
+            <br><br>
+            <li>Sobre el ciclo de vida y desarrollo de los sistemas de información:
+              <ul>¿Cuál es el ciclo de vida de los sistemas de información?</ul>
+              El ciclo de vida de los sistemas de información es el proceso que sigue un sistema de información desde su concepción hasta su retiro. Las etapas principales del ciclo de vida son:
+              <ol>
+                <li>Iniciación</li>
+                <li>Desarrollo</li>
+                <li>Operación</li>
+                <li>Retiro</li>
+              </ol>
+              <ul>¿Cuál es el ciclo de desarrollo de sistemas de información?</ul>
+              El ciclo de vida del desarrollo de sistemas de información, o SDLC (por sus siglas en inglés, Software Development Life Cycle) es un proceso estructurado que se sigue para desarrollar, implementar y mantener un sistema de información. Las etapas principales del ciclo de vida son:
+              <ol>
+                <li>Análisis de sistema: Se identifican las necesidades del negocio y se define el alcance del proyecto.</li>
+                <li>Diseño: Se crea la arquitectura del sistema y se diseñan los componentes.</li>
+                <li>Desarrollo: Se escribe el código y se construye el sistema.</li>
+                <li>Pruebas: Se realizan pruebas para asegurar la calidad y funcionalidad del sistema.</li>
+                <li>Despliegue: Se despliega el sistema en el entorno de producción.</li>
+                <li>Mantenimiento: Se realizan actualizaciones, correcciones de errores y mejoras continuas al sistema.</li>
+              </ol>
+          </ol>  
+        </div>
+      </div>
+    </section>
+        <section id="referencias" class="container-fluid my-5">
+        <div class="row border text-bg-dark shadow-lg">
+          <h1 class="text-center fw-bold my-4">Referencias</h1>
+          <ul>
+            <li>Aviani, G. (2019). <i>An introduction to HTTP: everything you need to know.</i> Freecodecamp<br><a href="https://www.freecodecamp.org/news/http-and-everything-you-need-to-know-about-it/">https://www.freecodecamp.org/news/http-and-everything-you-need-to-know-about-it/</a></li>
+            <li>Copes, F. (2019). <i>The HTML Handbook - Learn HTML for beginners.</i> Freecodecamp<br><a href="https://www.freecodecamp.org/news/the-html-handbook/">https://www.freecodecamp.org/news/the-html-handbook/</a></li>
+            <li>Geeks for geeks (2025). <i>Difference between HTML and HTML5</i> <br><a href="https://www.geeksforgeeks.org/html/difference-between-html-and-html5/">https://www.geeksforgeeks.org/html/difference-between-html-and-html5/</a></li>
+            <li>Geeks for geeks (2025). <i>Software Development Life Cycle (SDLC)</i> <br><a href="https://www.geeksforgeeks.org/software-engineering/software-development-life-cycle-sdlc/">https://www.geeksforgeeks.org/software-engineering/software-development-life-cycle-sdlc/</a></li>
+            <li>Geeks for geeks (2025). <i>What’s difference between The Internet and The Web ?</i> <br><a href="https://www.geeksforgeeks.org/computer-networks/whats-difference-internet-web/">https://www.geeksforgeeks.org/computer-networks/whats-difference-internet-web/</a></li>
+            <li>National Institute of Standards and Technology. (n.d.). <i>Information system life cycle.</i> <br><a href="https://csrc.nist.gov/glossary/term/information_system_life_cycle">https://csrc.nist.gov/glossary/term/information_system_life_cycle</a></li>
+            <li>Mozilla (s.f.). <i>What is a URL?</i> <br><a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Howto/Web_mechanics/What_is_a_URL">https://developer.mozilla.org/en-US/docs/Learn_web_development/Howto/Web_mechanics/What_is_a_URL</a></li>
+          </ul>
+        </div>
+    </section>
+    <!-- Contacto -->
+    <div  id="contactoo" class="px-4 py-5 text-center">
+        <h1 class="display-5 fw-bold text-body-emphasis">Contacto</h1>
+        <div class="col-lg-6 mx-auto">
+        <a href="https://www.linkedin.com/in/ana-camila-cuevas-gonz%C3%A1lez-a40115285/" target="_blank"><img src="pngwing.com (1).png" id="linkedin"></a><a href="https://github.com/strberrymilk" target="_blank"><img src="pngwing.com.png" id="github"></a>
+        <p>Ana Camila Cuevas González <br> A01412609 <br>camypowerr@gmail.com <br> <a href="https://code.visualstudio.com/" style="color:black">Editor HTML: Visual Studio Code</a></p>
+          
+      </div>
+    <!--Modals-->
+    <div id="modal-olimpiadas" class="modal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Más sobre las Olimpiadas</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <p> <b>PAGMO</b>: Pan-American Girls' Mathematical Olympiad<br>
+                    <b>IGO</b>: Iranian Geometry Olympiad<br>
+                    <b>OMM</b>: Olimpiada Mexicana de Matemáticas<br>
+                    <b>EGMO</b>: European Girls' Mathematical Olympiad<br>
+                    <b>ONMAPS</b>: Olimpiada Nacional de Matemáticas para Alumnos de Primaria y Secundaria<br>
+                    <b>CNF</b>: Concurso Nacional Femenil de la OMM
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="modal-B-Honored" class="modal" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">Alumnos destacados de PrepaTec</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <p>El premio <em>B-Honored</em> es un diploma por semestre que se les otorga a los alumnos con un promedio igual o mayor a <b>95</b>.
+                    </p>
+                  </div>
+                </div>
+            </div>
+        </div>
+        <div id="modal-mention" class="modal" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">Top 3% de la generación</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <p>Al finalizar mis estudios en PrepaTec recibí un cordón dorado y un diploma por pertenecer al mejor 3% de la generación, con un promedio de 98.11
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

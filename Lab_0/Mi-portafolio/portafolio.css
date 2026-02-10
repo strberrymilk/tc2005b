@@ -1,0 +1,219 @@
+header{
+    background-color: #212529;
+    border-bottom: solid 1px white;
+}
+
+#tec{
+    width: 15vw;
+}
+
+#fp{
+    width: 30px;
+}
+
+#minombre{
+    color: white;
+}
+
+.des{
+    background-color: white;
+}
+
+body{
+    background-image: url(quizas.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#contactoo{
+    background-color: #a370f7;
+}
+
+.bi-linkedin{
+    color: black;
+}
+
+.bi-bi-github{
+    color: black;
+    font-size: 60px;
+}
+
+#perfil{
+    background-color:#a370f7;
+    border-bottom: solid;
+    border-width: 1px;
+    border-color: white;
+}
+
+.owo{
+    background-color: #a370f7;
+}
+
+.sp1{
+    background-color: #a370f7;
+} 
+
+#proyecto-1{
+    background-image: url("taylor.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+#proyecto-2{
+    background-image: url('Captura-de-pantalla-2023-07-26-105346.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+#proyecto-3{
+    background-image: url('matroot.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+#proyecto-4{
+    background-image: url('agrs.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+#proyecto-5{
+    background-image: url('imagenes/proyecto-1.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+#proyecto-6{
+    background-image: url('imagenes/proyecto-1.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.carousel-item{
+    height: 400px;
+}
+
+.carousel-caption{
+    color:black;
+}
+
+.icono{
+    font-size: 1.5rem;
+    color: white;
+}
+
+button{
+    width: 30px;
+    border: none;
+    background-color: transparent;
+}
+
+#testimonios p{
+    color:white;
+
+}
+
+#testimonio h2{
+    color: white;
+}
+
+.uwu{
+    color: white;
+ }
+
+ #contactoo{
+    border-top: solid 1px white;
+ }
+
+ .icono2{
+    font-size: 1.3rem;
+ }
+
+
+/*navegador*/
+
+.nav{
+  text-align: center;
+}
+
+.nav * {
+  box-sizing: border-box;
+  transition: all .35s ease;
+}
+
+.nav li {
+  display: inline-block;
+  list-style: outside none none;
+  margin: .1em 1em;
+  padding: 0;
+}
+
+.nav a {
+  padding: .5em .5em;
+  color: whitesmoke;
+  position: relative;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.nav a::before,
+.nav a::after {
+  content: '';
+  height: 14px;
+  width: 14px;
+  position: absolute;
+  transition: all .35s ease;
+  opacity: 0;
+}
+
+.nav a::before {
+  content: '';
+  right: 0;
+  top: 0;
+  border-top: 3px solid #a370f7;
+  border-right: 3px solid #a370f7;
+  transform: translate(-100%, 50%);
+}
+
+.nav a:after {
+  content: '';
+  left: 0;
+  bottom: 0;
+  border-bottom: 3px solid #a370f7;
+  border-left: 3px solid #a370f7;
+  transform: translate(100%, -50%)
+}
+
+.nav a:hover:before,
+.nav a:hover:after{
+  transform: translate(0,0);
+  opacity: 1;
+}
+
+.nav a:hover {
+  color: #a370f7;
+}
+
+#linkedin{
+  width: 30px;
+  height: 30px;
+}
+
+#github{
+  width: 50px;
+  height: 50px;
+}
+
+h3{
+  color:black
+}
+
+#proyectos a{
+    text-decoration: none;
+}
+
+ol{
+    margin: 40px;
+}
