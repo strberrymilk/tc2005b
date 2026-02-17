@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 header{
     background-color: #212529;
     border-bottom: solid 1px white;
@@ -100,14 +104,15 @@ body{
 }
 
 .icono{
-    font-size: 1.5rem;
+    font-size: 1rem;
     color: white;
 }
 
 button{
-    width: 30px;
+    min-width: 30px;
     border: none;
     background-color: transparent;
+    display: inline-block;
 }
 
 #testimonios p{
@@ -127,8 +132,12 @@ button{
     border-top: solid 1px white;
  }
 
+ #contactoo a {
+    color: black;
+ }
+
  .icono2{
-    font-size: 1.3rem;
+    font-size: 1rem;
  }
 
 
