@@ -226,3 +226,11 @@ h3{
 ol{
     margin: 40px;
 }
+
+.exercises{
+    background-color: #a370f7;
+    border: solid 1px white;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+}
