@@ -1,4 +1,4 @@
-let app = document.getElementById ('typewriter');
+let app = document.getElementById('typewriter');
 
 let typewriter = new Typewriter(app,{
     loop: true,
@@ -158,3 +158,5 @@ let ex6 = () => {
   const solver = new TwoSumSolver(nums, target);
   solver.showResult("ex6");
 }
+
+// Lab 08
