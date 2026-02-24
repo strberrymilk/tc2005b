@@ -24,7 +24,7 @@ header{
 }
 
 body{
-    background-image: url(quizas.jpg);
+    background-image: url(background.jpg);
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -65,7 +65,7 @@ body{
 }
 
 #proyecto-2{
-    background-image: url('Captura-de-pantalla-2023-07-26-105346.png');
+    background-image: url('clon_google.png');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
