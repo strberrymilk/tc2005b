@@ -1,0 +1,25 @@
+{
+  "name": "lab11_en_adelante",
+  "version": "1.0.0",
+  "description": "Proyecto personal basado en los labs de tc2005b",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "hola": "echo \"hola\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^2.2.2",
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.27",
+    "daisyui": "^5.5.19",
+    "nodemon": "^3.1.14",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.2.1"
+  }
+}
