@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acerca de - Camila Cuevas</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="portafolio.css">
+</head>
+
+<body class="container-fluid p-0">
+    <header class="d-flex justify-content-center py-3">
+        <ul class="nav nav-pills">
+            <li class="nav-item"><a href="/" class="nav-link">Inicio</a></li>
+            <li class="nav-item"><a href="/about" class="nav-link active" aria-current="page">Acerca de</a></li>
+            <li class="nav-item"><a href="/api/mensajes" class="nav-link">Mensajes</a></li>
+        </ul>
+    </header>
+
+    <div class="container my-5">
+        <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center border shadow-lg text-bg-dark rounded">
+            <div class="col-lg-10 p-3 p-lg-5 pt-lg-3">
+                <h1 class="display-4 fw-bold lh-1 mb-4">Acerca de este Servidor</h1>
+                <p class="lead">Este es un servidor Node.js puro (sin frameworks como Express) que sirve mi portafolio personal.</p>
+            </div>
+        </div>
+    </div>
+
+    <section class="container my-5">
+        <div class="row rounded-3 shadow-lg">
+            <div class="col-12 p-5 text-bg-dark rounded">
+                <h2 class="fw-bold mb-4">Características Implementadas</h2>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title"><i class="bi bi-check-circle-fill text-success"></i> Servidor HTTP Puro</h5>
+                                <p class="card-text">Implementado con Node.js nativo, sin usar Express ni otros frameworks externos.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title"><i class="bi bi-check-circle-fill text-success"></i> Múltiples Rutas</h5>
+                                <p class="card-text">Al menos 3 rutas diferentes: /, /about, /api/mensajes y más.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title"><i class="bi bi-check-circle-fill text-success"></i> Manejo de Errores 404</h5>
+                                <p class="card-text">Respuestas HTTP 404 personalizadas cuando una ruta no existe.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title"><i class="bi bi-check-circle-fill text-success"></i> Formulario POST</h5>
+                                <p class="card-text">Formulario de contacto que envía datos por POST al servidor.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title"><i class="bi bi-check-circle-fill text-success"></i> Persistencia de Datos</h5>
+                                <p class="card-text">Los mensajes del formulario se guardan en un archivo de texto (mensajes.txt).</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title"><i class="bi bi-check-circle-fill text-success"></i> Archivos Estáticos</h5>
+                                <p class="card-text">Sirve CSS, JavaScript e imágenes automáticamente.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container my-5">
+        <div class="row border text-bg-dark shadow-lg rounded p-4">
+            <h2 class="text-center fw-bold my-4">Rutas Disponibles</h2>
+            <div class="table-responsive">
+                <table class="table table-dark table-striped">
+                    <thead>
+                        <tr>
+                            <th>Ruta</th>
+                            <th>Método</th>
+                            <th>Descripción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>/</code></td>
+                            <td><span class="badge bg-success">GET</span></td>
+                            <td>Página principal del portafolio</td>
+                        </tr>
+                        <tr>
+                            <td><code>/about</code></td>
+                            <td><span class="badge bg-success">GET</span></td>
+                            <td>Información sobre el servidor (esta página)</td>
+                        </tr>
+                        <tr>
+                            <td><code>/api/mensajes</code></td>
+                            <td><span class="badge bg-success">GET</span></td>
+                            <td>Ver todos los mensajes guardados</td>
+                        </tr>
+                        <tr>
+                            <td><code>/submit-form</code></td>
+                            <td><span class="badge bg-primary">POST</span></td>
+                            <td>Procesa el formulario de contacto</td>
+                        </tr>
+                        <tr>
+                            <td><code>/*.(css|js|png|jpg)</code></td>
+                            <td><span class="badge bg-success">GET</span></td>
+                            <td>Archivos estáticos (CSS, JS, imágenes)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <div class="container my-5 text-center">
+        <a href="/" class="btn btn-primary btn-lg">Volver al Portafolio</a>
+        <a href="/api/mensajes" class="btn btn-secondary btn-lg">Ver Mensajes</a>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+</body>
+</html>

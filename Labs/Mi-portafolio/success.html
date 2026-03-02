@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mensaje Enviado - Camila Cuevas</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="portafolio.css">
+</head>
+
+<body class="container-fluid p-0">
+    <header class="d-flex justify-content-center py-3">
+        <ul class="nav nav-pills">
+            <li class="nav-item"><a href="/" class="nav-link">Inicio</a></li>
+            <li class="nav-item"><a href="/about" class="nav-link">Acerca de</a></li>
+            <li class="nav-item"><a href="/api/mensajes" class="nav-link">Mensajes</a></li>
+        </ul>
+    </header>
+
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="alert alert-success shadow-lg" role="alert">
+                    <div class="d-flex align-items-center mb-3">
+                        <i class="bi bi-check-circle-fill fs-1 me-3"></i>
+                        <h1 class="alert-heading mb-0">¡Mensaje Enviado Exitosamente!</h1>
+                    </div>
+                    <hr>
+                    <p class="mb-3">Tu mensaje ha sido guardado correctamente en el servidor.</p>
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Detalles del mensaje:</h5>
+                            <div id="mensaje-detalles">
+                                <!-- Los detalles se insertan aquí dinámicamente -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container my-5 text-center">
+        <a href="/" class="btn btn-primary btn-lg">Volver al Portafolio</a>
+        <a href="/api/mensajes" class="btn btn-secondary btn-lg">Ver Todos los Mensajes</a>
+        <a href="/#formulario" class="btn btn-success btn-lg">Enviar Otro Mensaje</a>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+</body>
+</html>
