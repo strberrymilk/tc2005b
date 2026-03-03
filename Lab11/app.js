@@ -23,13 +23,12 @@ app.use('/login', rutasLogin);
 app.get('/', (request, response) => {
     const homePage = `
         <!DOCTYPE html>
-        <html lang="es">
+        <html lang="es" data-theme="matroot">
         <head>
             <meta charset="utf-8">
             <meta name="viewport" content="width=device-width, initial-scale=1">
             <title>Home</title>
-            <link href="https://cdn.jsdelivr.net/npm/daisyui@3.7.1/dist/full.css" rel="stylesheet" type="text/css" />
-            <script src="https://cdn.tailwindcss.com"></script>
+            <link href="/css/output.css" rel="stylesheet">
         </head>
         <body>
             <div class="navbar bg-base-100 shadow-sm">

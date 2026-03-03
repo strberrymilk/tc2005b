@@ -3,13 +3,12 @@ const router = express.Router();
 
 const html_header = `
 <!DOCTYPE html>
-<html>
+<html data-theme="matroot">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Blogs</title>
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@3.7.1/dist/full.css" rel="stylesheet" type="text/css" />
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="/css/output.css" rel="stylesheet">
 </head>
 <body>
     <div class="navbar bg-base-100 shadow-sm">

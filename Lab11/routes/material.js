@@ -3,13 +3,12 @@ const router = express.Router();
 
 const html_header = `
 <!DOCTYPE html>
-<html>
+<html data-theme="matroot">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Material</title>
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@3.7.1/dist/full.css" rel="stylesheet" type="text/css" />
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="/css/output.css" rel="stylesheet">
 </head>
 <body>
     <div class="navbar bg-base-100 shadow-sm">
@@ -165,7 +164,7 @@ const html_recomendados = `
     <div class="container mx-auto p-8">
         <h1 class="text-3xl font-bold mb-6">Recursos Recomendados</h1>
         
-        <div class="card w-full bg-base-100 shadow-md mb-4">
+        <div class="card w-full bg-base-200 shadow-md mb-4">
             <div class="card-body">
                 <h2 class="card-title">Recurso 1</h2>
                 <p>A card component has a figure, a body part, and inside body there are title and actions parts</p>
@@ -175,7 +174,7 @@ const html_recomendados = `
             </div>
         </div>
         
-        <div class="card w-full bg-base-100 shadow-md mb-4">
+        <div class="card w-full bg-base-200 shadow-md mb-4">
             <div class="card-body">
                 <h2 class="card-title">Recurso 2</h2>
                 <p>A card component has a figure, a body part, and inside body there are title and actions parts</p>
@@ -185,7 +184,7 @@ const html_recomendados = `
             </div>
         </div>
         
-        <div class="card w-full bg-base-100 shadow-md mb-4">
+        <div class="card w-full bg-base-200 shadow-md mb-4">
             <div class="card-body">
                 <h2 class="card-title">Recurso 3</h2>
                 <p>A card component has a figure, a body part, and inside body there are title and actions parts</p>

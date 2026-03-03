@@ -5,13 +5,12 @@ const path = require('path');
 
 const html_login = `
 <!DOCTYPE html>
-<html>
+<html data-theme="matroot">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Login</title>
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@3.7.1/dist/full.css" rel="stylesheet" type="text/css" />
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="/css/output.css" rel="stylesheet">
 </head>
 <body>
     <div class="min-h-screen flex items-center justify-center" style="background-image: url('/images/login_background.jpg'); background-size: cover; background-position: center;">
@@ -49,13 +48,12 @@ const html_login = `
 
 const html_registro = `
 <!DOCTYPE html>
-<html>
+<html data-theme="matroot">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Registro</title>
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@3.7.1/dist/full.css" rel="stylesheet" type="text/css" />
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="/css/output.css" rel="stylesheet">
 </head>
 <body>
     <div class="min-h-screen flex items-center justify-center" style="background-image: url('/images/login_background.jpg'); background-size: cover; background-position: center;">
@@ -131,7 +129,7 @@ router.post('/registro', (request, response) => {
                     <meta charset="utf-8">
                     <title>Error</title>
                     <link href="https://cdn.jsdelivr.net/npm/daisyui@3.7.1/dist/full.css" rel="stylesheet" type="text/css" />
-                    <script src="https://cdn.tailwindcss.com"></script>
+                    <link href="/css/output.css" rel="stylesheet">
                 </head>
                 <body class="flex items-center justify-center min-h-screen bg-base-200">
                     <div class="card w-96 bg-error text-error-content shadow-xl">
@@ -152,7 +150,7 @@ router.post('/registro', (request, response) => {
                     <meta charset="utf-8">
                     <title>Registro Exitoso</title>
                     <link href="https://cdn.jsdelivr.net/npm/daisyui@3.7.1/dist/full.css" rel="stylesheet" type="text/css" />
-                    <script src="https://cdn.tailwindcss.com"></script>
+                    <link href="/css/output.css" rel="stylesheet">
                 </head>
                 <body class="flex items-center justify-center min-h-screen bg-base-200">
                     <div class="card w-96 bg-success text-success-content shadow-xl">
