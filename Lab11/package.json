@@ -18,7 +18,8 @@
     "body-parser": "^2.2.2",
     "ejs": "^4.0.1",
     "express": "^5.2.1",
-    "flowbite": "^4.0.1"
+    "flowbite": "^4.0.1",
+    "mysql2": "^3.19.0"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.27",

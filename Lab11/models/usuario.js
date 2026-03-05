@@ -1,5 +1,8 @@
-// Arreglo para almacenar usuarios en memoria
-const usuarios = [];
+/* Arreglo para almacenar usuarios en memoria
+const usuarios = []; */
+
+const db = require('./util/database');
+
 
 module.exports = class Usuario {
 
@@ -18,6 +21,7 @@ module.exports = class Usuario {
 
     // Este método servirá para devolver los objetos del almacenamiento persistente.
     static fetchAll() {
+        db.execute('SELECT * FROM users');
         return usuarios;
     }
 
