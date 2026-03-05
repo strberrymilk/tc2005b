@@ -1,0 +1,44 @@
+<%- include('../includes/head') %>
+<%- include('../includes/navbar') %>
+
+<div class="hero min-h-screen" style="background-image: url('public/images/login_background.JPG')">
+    <div class="hero-overlay"></div>
+    <div class="hero-content text-neutral-content text-center">
+        <div class="max-w-md">
+            <h1 class="mb-5 text-5xl font-bold">Matroot</h1>
+            <p class="mb-5">
+                MAT root es un proyecto social y educativo que fomenta el estudio de las matemáticas de forma creativa e ingeniosa. Nuestro objetivo es crear una comunidad para los jóvenes tamulipecos entusiastas, y prepararalos para las Olimpiadas de Matemáticas. Se formalizó en 2023 como proyecto comunitario.
+            </p>
+            <button class="btn btn-primary">Get Started</button>
+        </div>
+    </div>
+</div>
+
+<div class="carousel w-full h-96">
+    <div id="slide1" class="carousel-item relative w-full">
+        <img src="https://cdn.pixabay.com/photo/2015/11/15/07/47/geometry-1044090_1280.jpg" class="w-full h-full object-cover" />
+        <div class="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
+            <a href="#slide3" class="btn btn-circle">❮</a>
+            <a href="#slide2" class="btn btn-circle">❯</a>
+        </div>
+    </div>
+    <div id="slide2" class="carousel-item relative w-full">
+        <img src="https://cdn.pixabay.com/photo/2017/08/30/01/05/milky-way-2695569_1280.jpg" class="w-full h-full object-cover" />
+        <div class="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
+            <a href="#slide1" class="btn btn-circle">❮</a>
+            <a href="#slide3" class="btn btn-circle">❯</a>
+        </div>
+    </div>
+    <div id="slide3" class="carousel-item relative w-full">
+        <img src="https://cdn.pixabay.com/photo/2018/01/14/23/12/nature-3082832_1280.jpg" class="w-full h-full object-cover" />
+        <div class="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
+            <a href="#slide2" class="btn btn-circle">❮</a>
+            <a href="#slide1" class="btn btn-circle">❯</a>
+        </div>
+    </div>
+</div>
+
+<%- include('../includes/footer') %>
+<script src="../path/to/flowbite/dist/flowbite.min.js"></script>
+</body>
+</html>

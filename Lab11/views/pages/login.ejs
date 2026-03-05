@@ -1,0 +1,35 @@
+<%- include('../includes/head') %>
+
+<body>
+    <div class="min-h-screen flex items-center justify-center" style="background-image: url('/images/login_background.jpg'); background-size: cover; background-position: center;">
+        <div class="hero-overlay bg-opacity-0 min-h-screen absolute inset-0"></div>
+        <div class="card bg-base-100 w-96 shadow-xl z-10">
+            <div class="card-body">
+                <h2 class="card-title">Iniciar sesión</h2>
+                <form action="/login" method="POST">
+                    <div class="form-control">
+                        <label class="label">
+                            <span class="label-text">Correo electrónico</span>
+                        </label>
+                        <input type="email" name="email" placeholder="correo@ejemplo.com" class="input input-bordered" required />
+                    </div>
+                    <div class="form-control mt-4">
+                        <label class="label">
+                            <span class="label-text">Contraseña</span>
+                        </label>
+                        <input type="password" name="password" placeholder="Tu contraseña" class="input input-bordered" required />
+                    </div>
+                    <div class="card-actions justify-center mt-6">
+                        <button type="submit" class="btn btn-primary">Iniciar sesión</button>
+                    </div>
+                </form>
+                <div class="divider"></div>
+                <div class="text-center">
+                    <p class="text-sm">¿No tienes cuenta? <a href="/login/registro" class="link link-primary">Regístrate</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+<script src="../path/to/flowbite/dist/flowbite.min.js"></script>
+</body>
+</html>

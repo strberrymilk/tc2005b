@@ -1,9 +1,11 @@
 @import "tailwindcss";
 
+@plugin "flowbite/plugin";
+
 @plugin "daisyui";
 
 @plugin "daisyui/theme" {
-  name: "matroot";
+  name: "matroot_light";
   default: false;
   prefersdark: false;
   color-scheme: "light";

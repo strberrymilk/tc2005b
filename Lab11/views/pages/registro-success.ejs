@@ -1,0 +1,51 @@
+<%- include('../includes/head') %>
+
+<body>
+    <div class="min-h-screen flex items-center justify-center bg-base-200">
+        <div class="card bg-base-100 w-96 shadow-xl">
+            <div class="card-body items-center text-center">
+                <div class="text-6xl mb-4">✅</div>
+                <h2 class="card-title text-2xl">¡Registro exitoso!</h2>
+                <p class="py-4">Tu cuenta ha sido creada exitosamente.</p>
+                
+                <!-- Información del usuario registrado -->
+                <div class="w-full text-left bg-base-200 p-4 rounded-lg space-y-2">
+                    <h3 class="font-semibold text-lg mb-3">Datos registrados:</h3>
+                    <div class="flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                        </svg>
+                        <span><strong>Nombre:</strong> <%= usuario.nombre %></span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        </svg>
+                        <span><strong>Email:</strong> <%= usuario.email %></span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                        </svg>
+                        <span><strong>Fecha:</strong> <%= usuario.fecha %></span>
+                    </div>
+                </div>
+
+                <!-- Estadística -->
+                <div class="alert alert-success mt-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span>Eres el usuario #<%= totalUsuarios %> en registrarse</span>
+                </div>
+                
+                <div class="card-actions mt-4">
+                    <a href="/login" class="btn btn-primary">Iniciar sesión</a>
+                    <a href="/" class="btn btn-ghost">Ir al inicio</a>
+                </div>
+            </div>
+        </div>
+    </div>
+<script src="../path/to/flowbite/dist/flowbite.min.js"></script>
+</body>
+</html>
