@@ -16,12 +16,17 @@ app.set('views', path.join(__dirname, 'views'));
 const bodyParser = require('body-parser');
 // Middleware que lee el cuerpo de las solicitudes con formato application/x-www-form-urlencoded y lo convierte en un objeto JavaScript. El parámetro extended: false indica que no se permiten objetos anidados en el cuerpo de la solicitud.
 app.use(bodyParser.urlencoded({ extended: false }));
+// Middleware para parsear JSON
+app.use(bodyParser.json());
+
+// Forma nueva: app.use(express.urlencoded({ extended: false }));
 
 // Sirve archivos estáticos desde la carpeta public
 // Join sirve para armar la ruta. Tiene la ventaja de que considera el sistema operativo donde el código resida 
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Ruta explícita para el favicon con cabecera correcta
+// TODO: actualizar
 app.get('/favicon.ico', (req, res) => {
     res.setHeader('Content-Type', 'image/x-icon');
     res.setHeader('Cache-Control', 'public, max-age=86400');
@@ -36,9 +41,6 @@ app.get('/favicon.ico', (req, res) => {
 const rutasMaterial = require('./routes/material');
 // "use" une un router o middleware a una ruta base. En este caso, todas las rutas definidas en rutasMaterial se accederán a través de /material
 app.use('/material', rutasMaterial);
-
-const rutasBlogs = require('./routes/blogs');
-app.use('/blogs', rutasBlogs);
 
 const rutasLogin = require('./routes/login');
 app.use('/login', rutasLogin);

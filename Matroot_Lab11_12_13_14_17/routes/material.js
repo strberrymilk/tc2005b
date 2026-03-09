@@ -1,25 +1,26 @@
+// Carga módulo Express
 const express = require('express');
+
+// Crea un router para manejar las rutas del módulo material
 const router = express.Router();
 
-// Middlewares: funciones que se ejecutan antes de llegar a la ruta
-router.use((request, response, next) => {
-    console.log(`Accediendo a: /material${request.url}`);
-    next();
-});
+// Importar el controlador
+const materialController = require('../controllers/material');
 
 // Ruta principal del módulo material: /material/
-router.get('/', (request, response, next) => {
-    response.render('pages/material');
-});
+router.get('/', materialController.getMaterial);
 
 // Segunda ruta del módulo: /material/matroot-original
-router.get('/matroot-original', (request, response, next) => {
-    response.render('pages/material_o');
-});
+router.get('/matroot-original', materialController.getMaterialOriginal);
 
 // Tercera ruta del módulo: /material/recomendados
-router.get('/recomendados', (request, response, next) => {
-    response.render('pages/material_r');
-});
+router.get('/recomendados', materialController.getMaterialRecomendado);
 
+// Ruta POST para crear material
+router.post('/', materialController.postMaterial);
+
+// Ruta para ver detalle de un material específico (debe ir al final)
+router.get('/:id', materialController.getMaterialById);
+
+// Exporta el router para que pueda ser utilizado en app.js
 module.exports = router;

@@ -1,7 +1,7 @@
 <%- include('../includes/head') %>
 <%- include('../includes/navbar') %>
 
-<div class="hero min-h-screen" style="background-image: url('public/images/login_background.JPG')">
+<div class="hero min-h-screen" style="background-image: url('/images/home_background.png'); background-size: cover; background-repeat: repeat;">
     <div class="hero-overlay"></div>
     <div class="hero-content text-neutral-content text-center">
         <div class="max-w-md">
@@ -14,7 +14,77 @@
     </div>
 </div>
 
-<div class="carousel w-full h-96">
+<div class="divider">¿Quieres colaborar?</div>
+
+<div class="container mx-auto p-8 max-w-2xl">
+    <div class="card bg-base-200 shadow-xl">
+        <div class="card-body">
+            <h2 class="card-title">Compartir material</h2>
+            <p class="text-sm mb-4">Ayuda a la comunidad compartiendo material educativo</p>
+            
+            <form action="/material" method="POST">
+
+                <div class="form-control w-full">
+                    <label class="label">
+                        <span class="label-text">Título</span>
+                    </label>
+                    <input 
+                        type="text" 
+                        name="title" 
+                        placeholder="Combinaciones y permutaciones" 
+                        class="input input-bordered w-full" 
+                        required 
+                    />
+                </div>
+
+                <div class="form-control w-full mt-4">
+                    <label class="label">
+                        <span class="label-text">Descripción</span>
+                    </label>
+                    <textarea 
+                        name="description" 
+                        placeholder="Lista de problemas introductorios..." 
+                        class="textarea textarea-bordered h-24" 
+                        required
+                    ></textarea>
+                </div>
+
+                <div class="form-control w-full mt-4">
+                    <label class="label">
+                        <span class="label-text">Link de imagen (opcional)</span>
+                    </label>
+                    <input 
+                        type="url" 
+                        name="image_link" 
+                        placeholder="https://images.com/..." 
+                        class="input input-bordered w-full" 
+                    />
+                </div>
+
+                <div class="form-control w-full mt-4">
+                    <label class="label">
+                        <span class="label-text">Link del PDF</span>
+                    </label>
+                    <input 
+                        type="url" 
+                        name="pdf_link" 
+                        placeholder="https://drive.google.com/..." 
+                        class="input input-bordered w-full" 
+                        required
+                    />
+                </div>
+
+                <div class="card-actions justify-end mt-6">
+                    <button type="submit" class="btn btn-primary">Compartir material</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="divider"></div>
+
+<div class="carousel w-full h-32">
     <div id="slide1" class="carousel-item relative w-full">
         <img src="https://cdn.pixabay.com/photo/2015/11/15/07/47/geometry-1044090_1280.jpg" class="w-full h-full object-cover" />
         <div class="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
@@ -39,6 +109,5 @@
 </div>
 
 <%- include('../includes/footer') %>
-<script src="../path/to/flowbite/dist/flowbite.min.js"></script>
 </body>
 </html>

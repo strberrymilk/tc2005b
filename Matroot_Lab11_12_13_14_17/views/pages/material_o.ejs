@@ -2,63 +2,28 @@
 <%- include('../includes/navbar') %>
 
 <div class="container mx-auto p-8">
-    <h1 class="text-3xl font-bold mb-6">Galería de Cards con Wrap</h1>
+    <h1 class="text-3xl font-bold mb-6">Material elaborado por el equipo</h1>
     <div class="flex flex-wrap gap-6 justify-start">
-        <div class="card bg-base-100 w-72 shadow-md">
-            <figure>
-                <img src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp" alt="Shoes" />
-            </figure>
-            <div class="card-body">
-                <h2 class="card-title">Card 1</h2>
-                <p>A card component has a figure, a body part, and inside body there are title and actions parts</p>
-                <div class="card-actions justify-end">
-                    <button class="btn btn-primary">Buy Now</button>
+        <% material.forEach(card => { %>
+            <div class="card bg-base-100 w-72 shadow-md">
+                <figure>
+                    <img src="<%= card.image_link || 'https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp' %>" alt="<%= card.title %>" class="w-full h-48 object-cover" />
+                </figure>
+                <div class="card-body">
+                    <h2 class="card-title"><%= card.title %></h2>
+                    <p><%= card.description %></p>
+                    <div class="card-actions justify-end">
+                        <a href="/material/<%= card.id_material %>" class="btn btn-ghost btn-sm">Ver detalle</a>
+                        <a href="<%= card.pdf_link %>" target="_blank" class="btn btn-primary btn-sm">Descargar PDF</a>
+                    </div>
                 </div>
             </div>
-        </div>
-        
-        <div class="card bg-base-100 w-72 shadow-md">
-            <figure>
-                <img src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp" alt="Shoes" />
-            </figure>
-            <div class="card-body">
-                <h2 class="card-title">Card 2</h2>
-                <p>A card component has a figure, a body part, and inside body there are title and actions parts</p>
-                <div class="card-actions justify-end">
-                    <button class="btn btn-primary">Buy Now</button>
-                </div>
-            </div>
-        </div>
-        
-        <div class="card bg-base-100 w-72 shadow-md">
-            <figure>
-                <img src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp" alt="Shoes" />
-            </figure>
-            <div class="card-body">
-                <h2 class="card-title">Card 3</h2>
-                <p>A card component has a figure, a body part, and inside body there are title and actions parts</p>
-                <div class="card-actions justify-end">
-                    <button class="btn btn-primary">Buy Now</button>
-                </div>
-            </div>
-        </div>
-        
-        <div class="card bg-base-100 w-72 shadow-md">
-            <figure>
-                <img src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp" alt="Shoes" />
-            </figure>
-            <div class="card-body">
-                <h2 class="card-title">Card 4</h2>
-                <p>A card component has a figure, a body part, and inside body there are title and actions parts</p>
-                <div class="card-actions justify-end">
-                    <button class="btn btn-primary">Buy Now</button>
-                </div>
-            </div>
-        </div>
+        <% }); %>
     </div>
 </div>
 
+<%- include('../includes/pagination') %>
 <%- include('../includes/footer') %>
-<script src="../path/to/flowbite/dist/flowbite.min.js"></script>
+
 </body>
 </html>

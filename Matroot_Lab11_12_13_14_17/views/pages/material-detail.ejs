@@ -1,0 +1,65 @@
+<%- include('../includes/head') %>
+<%- include('../includes/navbar') %>
+
+<div class="container mx-auto p-8 max-w-4xl">
+    <!-- Botón para volver -->
+    <div class="mb-6">
+        <a href="/material/matroot-original" class="btn btn-ghost">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+            </svg>
+            Volver a materiales
+        </a>
+    </div>
+
+    <!-- Detalle del material -->
+    <div class="card bg-base-100 shadow-xl">
+        <figure class="px-10 pt-10">
+            <img 
+                src="<%= material.image_link || 'https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp' %>" 
+                alt="<%= material.title %>" 
+                class="rounded-xl max-h-96 object-cover" 
+            />
+        </figure>
+        <div class="card-body">
+            <h1 class="card-title text-4xl"><%= material.title %></h1>
+            
+            <div class="divider"></div>
+            
+            <div class="space-y-4">
+                <div>
+                    <h3 class="text-lg font-semibold mb-2">Descripción</h3>
+                    <p class="text-base"><%= material.description %></p>
+                </div>
+                
+                <div class="divider"></div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-2">Material ID</h3>
+                    <p class="text-sm text-base-content/70">#<%= material.id_material %></p>
+                </div>
+                
+                <% if (material.id_user) { %>
+                <div>
+                    <h3 class="text-lg font-semibold mb-2">Usuario ID</h3>
+                    <p class="text-sm text-base-content/70">#<%= material.id_user %></p>
+                </div>
+                <% } %>
+            </div>
+            
+            <div class="card-actions justify-end mt-6">
+                <a href="<%= material.pdf_link %>" target="_blank" class="btn btn-primary btn-lg">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                    </svg>
+                    Descargar PDF
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include('../includes/footer') %>
+
+</body>
+</html>

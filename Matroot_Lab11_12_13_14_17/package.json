@@ -1,5 +1,5 @@
 {
-  "name": "lab11_en_adelante",
+  "name": "matroot",
   "version": "1.0.0",
   "description": "Proyecto personal basado en los labs de tc2005b",
   "main": "app.js",
@@ -7,9 +7,7 @@
     "start": "node app.js",
     "dev": "nodemon app.js",
     "build:css": "npx @tailwindcss/cli -i ./public/css/input.css -o ./public/css/output.css --minify",
-    "watch:css": "npx @tailwindcss/cli -i ./public/css/input.css -o ./public/css/output.css --watch",
-    "hola": "echo \"hola\"",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "watch:css": "npx @tailwindcss/cli -i ./public/css/input.css -o ./public/css/output.css --watch"
   },
   "author": "",
   "license": "ISC",
@@ -18,7 +16,6 @@
     "body-parser": "^2.2.2",
     "ejs": "^4.0.1",
     "express": "^5.2.1",
-    "flowbite": "^4.0.1",
     "mysql2": "^3.19.0"
   },
   "devDependencies": {
