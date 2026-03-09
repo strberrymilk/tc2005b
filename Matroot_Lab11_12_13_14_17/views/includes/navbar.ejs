@@ -36,7 +36,12 @@
         </ul>
     </div>
     <div class="navbar-end">
-        <a href="/login/registro" class="btn btn-ghost">Registrarse</a>
-        <a href="/login" class="btn btn-primary">Iniciar sesión</a>
+        <% if (typeof(username) != "undefined" && username) { %>
+            <span class="mr-4">Hola, <strong><%= username %></strong></span>
+            <a href="/login/logout" class="btn btn-ghost">Cerrar sesión</a>
+        <% } else { %>
+            <a href="/login/registro" class="btn btn-ghost">Registrarse</a>
+            <a href="/login" class="btn btn-primary">Iniciar sesión</a>
+        <% } %>
     </div>
 </div>

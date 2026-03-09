@@ -19,6 +19,13 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // Middleware para parsear JSON
 app.use(bodyParser.json());
 
+const session = require('express-session');
+app.use(session({
+    secret: 'mi string secreto que debe ser un string aleatorio muy largo, no como éste', 
+    resave: false, // La sesión no se guardará en cada petición, sino sólo se guardará si algo cambió 
+    saveUninitialized: false, // Asegura que no se guarde una sesión para una petición que no lo necesita
+}));
+
 // Forma nueva: app.use(express.urlencoded({ extended: false }));
 
 // Sirve archivos estáticos desde la carpeta public
@@ -47,7 +54,9 @@ app.use('/login', rutasLogin);
 
 // Ruta principal. "get" es un método similar a "use", pero solo responde a solicitudes GET
 app.get('/', (request, response) => {
-    response.render('pages/home');
+    response.render('pages/home', {
+        username: request.session.username || ''
+    });
 });
 
 // ===========================================================================================================

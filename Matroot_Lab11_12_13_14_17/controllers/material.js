@@ -6,7 +6,8 @@ exports.getMaterial = (request, response, next) => {
     Material.fetchAll()
         .then(([rows]) => {
             response.render('pages/material', {
-                material: rows
+                material: rows,
+                username: request.session.username || ''
             });
         })
         .catch(err => {
@@ -20,7 +21,8 @@ exports.getMaterialOriginal = (request, response, next) => {
     Material.fetchAll()
         .then(([rows]) => {
             response.render('pages/material_o', {
-                material: rows
+                material: rows,
+                username: request.session.username || ''
             });
         })
         .catch(err => {
@@ -34,7 +36,8 @@ exports.getMaterialRecomendado = (request, response, next) => {
     Material.fetchAll()
         .then(([rows]) => {
             response.render('pages/material_r', {
-                material: rows
+                material: rows,
+                username: request.session.username || ''
             });
         })
         .catch(err => {
@@ -53,7 +56,8 @@ exports.getMaterialById = (request, response, next) => {
                 return response.status(404).render('pages/error404');
             }
             response.render('pages/material-detail', {
-                material: rows[0]
+                material: rows[0],
+                username: request.session.username || ''
             });
         })
         .catch(err => {

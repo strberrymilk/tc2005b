@@ -8,8 +8,11 @@ const router = express.Router();
 const loginController = require('../controllers/login');
 
 // Rutas GET y POST para login
-// router.get('/', loginController.getLogin);
-// router.post('/', loginController.postLogin);
+router.get('/', loginController.getLogin);
+router.post('/', loginController.postLogin);
+
+// Ruta para logout
+router.get('/logout', loginController.getLogout);
 
 // Rutas GET y POST para registro
 router.get('/registro', loginController.getRegistro);

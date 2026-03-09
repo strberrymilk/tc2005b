@@ -7,13 +7,66 @@ const Usuario = require('../models/usuario');
 // Controlador para mostrar el formulario de login
 exports.getLogin = (request, response, next) => {
     // Renderiza la vista login.ejs ubicada en views/pages/
-    response.render('pages/login');
+    response.render('pages/login', {
+        username: request.session.username || ''
+    });
+};
+
+// Controlador para procesar el login
+exports.postLogin = (request, response, next) => {
+    const { email, password } = request.body;
+    
+    // Buscar usuario por email
+    Usuario.findByEmail(email)
+        .then(([rows]) => {
+            if (rows.length === 0) {
+                // Usuario no encontrado
+                return response.status(401).render('pages/login', {
+                    username: '',
+                    error: 'Correo o contraseña incorrectos'
+                });
+            }
+            
+            const usuario = rows[0];
+            
+            // Verificar contraseña (en producción deberías usar bcrypt)
+            if (usuario.password !== password) {
+                return response.status(401).render('pages/login', {
+                    username: '',
+                    error: 'Correo o contraseña incorrectos'
+                });
+            }
+            
+            // Guardar información en la sesión
+            request.session.username = usuario.username;
+            request.session.userId = usuario.id_user;
+            request.session.email = usuario.email;
+            
+            // Redirigir a la página principal
+            response.redirect('/');
+        })
+        .catch(err => {
+            console.log(err);
+            response.status(500).render('pages/login', {
+                username: '',
+                error: 'Error al procesar el login'
+            });
+        });
+};
+
+// Controlador para cerrar sesión
+exports.getLogout = (request, response, next) => {
+    request.session.destroy(() => {
+        response.redirect('/login');
+    });
 };
 
 // Controlador para mostrar el formulario de registro
 exports.getRegistro = (request, response, next) => {
     // Renderiza la vista registro.ejs ubicada en views/pages/
-    response.render('pages/registro');
+    response.render('pages/registro', {
+        username: request.session.username || ''
+    });
 };
 
 // Controlador para procesar el registro
