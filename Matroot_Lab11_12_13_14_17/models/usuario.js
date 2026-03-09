@@ -1,4 +1,5 @@
 const db = require('../util/database');
+const bcrypt = require('bcrypt');
 
 module.exports = class Usuario {
 
@@ -15,10 +16,17 @@ module.exports = class Usuario {
 
     // Guardar usuario en la base de datos
     save() {
-        return db.execute(
-            'INSERT INTO users (username, email, password, name, lastname_1, lastname_2, bio) VALUES (?, ?, ?, ?, ?, ?, ?)',
-            [this.username, this.email, this.password, this.name, this.lastname_1, this.lastname_2, this.bio]
-        );
+        return bcrypt.hash(this.password, 12)
+            .then((password_hash) => 
+                db.execute(
+                    'INSERT INTO users (username, email, password, name, lastname_1, lastname_2, bio) VALUES (?, ?, ?, ?, ?, ?, ?)',
+                    [this.username, this.email, password_hash, this.name, this.lastname_1, this.lastname_2, this.bio]
+                )
+            )
+            .catch((err) => {
+                console.log(err);
+                throw err;
+            });
     }
 
     // Obtener todos los usuarios

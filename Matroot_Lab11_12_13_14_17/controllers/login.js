@@ -1,5 +1,6 @@
 // Importa el modelo de usuario
 const Usuario = require('../models/usuario');
+const bcrypt = require('bcrypt');
 
 // Exports es un objeto que se utiliza para exportar funciones o variables desde un módulo. 
 // Se escribe junto con el nombre de la función que se está creando
@@ -12,53 +13,69 @@ exports.getLogin = (request, response, next) => {
     });
 };
 
-// Controlador para procesar el login
 exports.postLogin = (request, response, next) => {
     const { email, password } = request.body;
     
-    // Buscar usuario por email
+    let usuario;
+    
+    // Buscar el usuario por email
     Usuario.findByEmail(email)
         .then(([rows]) => {
             if (rows.length === 0) {
                 // Usuario no encontrado
-                return response.status(401).render('pages/login', {
-                    username: '',
-                    error: 'Correo o contraseña incorrectos'
-                });
+                throw new Error('USER_NOT_FOUND');
             }
             
-            const usuario = rows[0];
+            usuario = rows[0];
             
-            // Verificar contraseña (en producción deberías usar bcrypt)
-            if (usuario.password !== password) {
-                return response.status(401).render('pages/login', {
-                    username: '',
-                    error: 'Correo o contraseña incorrectos'
-                });
+            // Comparar la contraseña con bcrypt
+            return bcrypt.compare(password, usuario.password);
+        })
+        .then((doMatch) => {
+            if (!doMatch) {
+                // Contraseña incorrecta
+                throw new Error('WRONG_PASSWORD');
             }
             
-            // Guardar información en la sesión
+            // Contraseña correcta - guardar sesión
             request.session.username = usuario.username;
             request.session.userId = usuario.id_user;
             request.session.email = usuario.email;
             
-            // Redirigir a la página principal
+            console.log('Login exitoso - username:', request.session.username);
+            
+            // Guardar la sesión explícitamente
+            return new Promise((resolve, reject) => {
+                request.session.save((err) => {
+                    if (err) {
+                        console.log('Error al guardar sesión en login:', err);
+                        reject(err);
+                    } else {
+                        console.log('Sesión de login guardada exitosamente');
+                        resolve();
+                    }
+                });
+            });
+        })
+        .then(() => {
+            // Redirigir al home después de login exitoso
+            console.log('Redirigiendo al home con username:', request.session.username);
             response.redirect('/');
         })
-        .catch(err => {
+        .catch((err) => {
             console.log(err);
-            response.status(500).render('pages/login', {
-                username: '',
-                error: 'Error al procesar el login'
-            });
+            if (err.message === 'USER_NOT_FOUND' || err.message === 'WRONG_PASSWORD') {
+                response.status(401).render('pages/login', {
+                    username: '',
+                    error: 'Correo electrónico o contraseña incorrectos'
+                });
+            } else {
+                response.status(500).render('pages/login', {
+                    username: '',
+                    error: 'Error al iniciar sesión. Por favor, intenta de nuevo.'
+                });
+            }
         });
-};
-
-// Controlador para cerrar sesión
-exports.getLogout = (request, response, next) => {
-    request.session.destroy(() => {
-        response.redirect('/login');
-    });
 };
 
 // Controlador para mostrar el formulario de registro
@@ -74,7 +91,15 @@ exports.postRegistro = (request, response, next) => {
 
     // Desestructuración para obtener los valores del formulario.
     // request.body es un objeto que contiene los datos enviados en el cuerpo de la solicitud POST del formulario. 
-    const { username, email, password, name, lastname_1, lastname_2, bio } = request.body;
+    const { username, email, password, password_confirm, name, lastname_1, lastname_2, bio } = request.body;
+    
+    // Validar que las contraseñas coincidan
+    if (password !== password_confirm) {
+        return response.status(400).render('pages/registro', {
+            username: request.session.username || '',
+            error: 'Las contraseñas no coinciden'
+        });
+    }
     
     // Crear un objeto de nuestro modelo
     const nuevoUsuario = new Usuario(username, email, password, name, lastname_1, lastname_2, bio);
@@ -82,12 +107,43 @@ exports.postRegistro = (request, response, next) => {
     // Guardar el usuario y manejar la respuesta con promesas
     nuevoUsuario.save()
         .then(() => {
+            // Buscar el usuario recién creado para obtener su ID
+            return Usuario.findByEmail(email);
+        })
+        .then(([rows]) => {
+            if (rows.length > 0) {
+                const usuario = rows[0];
+                // Guardar información en la sesión
+                request.session.username = usuario.username;
+                request.session.userId = usuario.id_user;
+                request.session.email = usuario.email;
+                
+                console.log('Sesión guardada con username:', request.session.username);
+                
+                // Guardar la sesión explícitamente
+                return new Promise((resolve, reject) => {
+                    request.session.save((err) => {
+                        if (err) {
+                            console.log('Error al guardar sesión:', err);
+                            reject(err);
+                        } else {
+                            console.log('Sesión guardada exitosamente');
+                            resolve();
+                        }
+                    });
+                });
+            }
+            return Promise.resolve(); // Retornar promesa resuelta si no hay usuario
+        })
+        .then(() => {
             // Recuperar todos los usuarios para obtener el total
             return Usuario.fetchAll();
         })
         .then(([rows]) => {
             // Renderizar la vista de éxito con variables
+            console.log('Renderizando con username:', request.session.username);
             response.render('pages/registro-success', { 
+                username: request.session.username || '',
                 usuario: {
                     username: nuevoUsuario.username,
                     email: nuevoUsuario.email,
@@ -106,4 +162,10 @@ exports.postRegistro = (request, response, next) => {
                 error: 'Error al registrar el usuario. Por favor, intenta de nuevo.'
             });
         });
+};
+
+exports.getLogout = (request, response, next) => {
+    request.session.destroy(() => {
+        response.redirect('/users/login'); // Este código se ejecuta cuando la sesión se elimina.
+    });
 };
