@@ -389,10 +389,16 @@
                 Las contraseñas no coinciden.
               </div>
             </div>
+            <p id="texto" onmouseover="grande()" onmouseout="normal()">Elaborado con HTML, CSS y JavaScript</p>
             <ol>
               <li>¿Por qué es una buena práctica usar JavaScript para checar que sean válidos los inputs de las formas antes de enviar los datos al servidor?</li>
+              Porque mejora la experiencia del usuario al mostrar errores inmediatamente sin tener que enviar el formulario al servidor. Además, reduce solicitudes innecesarias al servidor al evitar que se envíen datos inválidos. Sin embargo, estas validaciones deben complementarse con validaciones del lado del servidor.
+              <br><br>
               <li>¿Cómo puedes saltarte la seguridad de validaciones hechas con JavaScript?</li>
+              Desactivando JavaScript en el navegador, modificando el código con las herramientas de desarrollador o enviando solicitudes directamente al servidor mediante herramientas como clientes HTTP o scripts, sin pasar por la interfaz del formulario.
+              <br><br>
               <li>Si te puedes saltar la seguridad de las validaciones de JavaScript, entonces ¿por qué la primera pregunta dice que es una buena práctica?</li>
+              Porque aunque no es infalible, sigue siendo una capa importante de validación que mejora la experiencia del usuario y reduce la cantidad de datos incorrectos que llegan al servidor. Además, las validaciones del lado del cliente pueden ser complementadas con validaciones del lado del servidor para una mayor seguridad.
             </ol>
             <script>
               const password_confirm = document.getElementById('password_confirm');
@@ -404,6 +410,12 @@
                   } else {
                       dont_match.style.display = "none";
                   }
+              }
+              function grande() {
+                document.getElementById("texto").style.fontSize = "30px";
+              }
+              function normal() {
+                document.getElementById("texto").style.fontSize = "16px";
               }
             </script>
         </div>
@@ -420,6 +432,7 @@
             <li>Geeks for geeks (2025). <em>What’s difference between The Internet and The Web ?</em> <br><a href="https://www.geeksforgeeks.org/computer-networks/whats-difference-internet-web/">https://www.geeksforgeeks.org/computer-networks/whats-difference-internet-web/</a></li>
             <li>National Institute of Standards and Technology. (n.d.). <em>Information system life cycle.</em> <br><a href="https://csrc.nist.gov/glossary/term/information_system_life_cycle">https://csrc.nist.gov/glossary/term/information_system_life_cycle</a></li>
             <li>Mozilla (s.f.). <em>What is a URL?</em> <br><a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Howto/Web_mechanics/What_is_a_URL">https://developer.mozilla.org/en-US/docs/Learn_web_development/Howto/Web_mechanics/What_is_a_URL</a></li>
+            <li>W3 Schools (s.f.). <em>HTML onmouseover Event Attribute</em>.<br><a href="https://www.w3schools.com/tags/ev_onmouseover.asp">https://www.w3schools.com/tags/ev_onmouseover.asp</a></li>
           </ul>
         </div>
     </section>
