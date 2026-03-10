@@ -378,9 +378,34 @@
     <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center border shadow-lg">
         <div class="row border text-bg-dark shadow-lg">
           <h1 class="text-center fw-bold my-4">Progamación orientada a eventos - Lab6</h1>
+            <div class="mb-3">
+              <label for="password" class="form-label">Contraseña</label>
+              <input type="password" class="form-control" id="password">
+            </div>
+            <div class="mb-3">
+              <label for="password_confirm" class="form-label">Confirmar contraseña</label>
+              <input type="password" class="form-control" id="password_confirm">
+              <div class="alert alert-danger mt-2" id="dont_match" style="display: none;">
+                Las contraseñas no coinciden.
+              </div>
+            </div>
             <ol>
-              <li><>
+              <li>¿Por qué es una buena práctica usar JavaScript para checar que sean válidos los inputs de las formas antes de enviar los datos al servidor?</li>
+              <li>¿Cómo puedes saltarte la seguridad de validaciones hechas con JavaScript?</li>
+              <li>Si te puedes saltar la seguridad de las validaciones de JavaScript, entonces ¿por qué la primera pregunta dice que es una buena práctica?</li>
             </ol>
+            <script>
+              const password_confirm = document.getElementById('password_confirm');
+              const password = document.getElementById('password');
+              const dont_match = document.getElementById('dont_match');
+              password_confirm.onkeyup = () => {
+                  if(password_confirm.value != password.value) {
+                      dont_match.style.display = "block";
+                  } else {
+                      dont_match.style.display = "none";
+                  }
+              }
+            </script>
         </div>
     </section>
         <section id="referencias" class="container-fluid my-5">
