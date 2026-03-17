@@ -9,7 +9,8 @@ exports.getMaterial = (request, response, next) => {
                 material: rows,
                 csrfToken: request.csrfToken(),
                 isLoggedIn: request.session.isLoggedIn || false,
-                username: request.session.username || ''
+                username: request.session.username || '',
+                privilegios: request.session.privilegios || []
             });
         })
         .catch(err => {
@@ -26,7 +27,8 @@ exports.getMaterialOriginal = (request, response, next) => {
                 material: rows,
                 csrfToken: request.csrfToken(),
                 isLoggedIn: request.session.isLoggedIn || false,
-                username: request.session.username || ''
+                username: request.session.username || '',
+                privilegios: request.session.privilegios || []
             });
         })
         .catch(err => {
@@ -43,7 +45,8 @@ exports.getMaterialRecomendado = (request, response, next) => {
                 material: rows,
                 csrfToken: request.csrfToken(),
                 isLoggedIn: request.session.isLoggedIn || false,
-                username: request.session.username || ''
+                username: request.session.username || '',
+                privilegios: request.session.privilegios || []
             });
         })
         .catch(err => {
@@ -65,7 +68,8 @@ exports.getMaterialById = (request, response, next) => {
                 material: rows[0],
                 csrfToken: request.csrfToken(),
                 isLoggedIn: request.session.isLoggedIn || false,
-                username: request.session.username || ''
+                username: request.session.username || '',
+                privilegios: request.session.privilegios || []
             });
         })
         .catch(err => {

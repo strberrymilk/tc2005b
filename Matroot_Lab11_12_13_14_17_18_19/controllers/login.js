@@ -39,11 +39,16 @@ exports.postLogin = (request, response, next) => {
                 throw new Error('WRONG_PASSWORD');
             }
             
-            // Contraseña correcta - guardar sesión
+            // Contraseña correcta - obtener privilegios
+            return Usuario.getPrivilegios(usuario.id_user);
+        })
+        .then(([privilegios, fieldData]) => {
+            // Guardar sesión con privilegios
             request.session.isLoggedIn = true;
             request.session.username = usuario.username;
             request.session.userId = usuario.id_user;
             request.session.email = usuario.email;
+            request.session.privilegios = privilegios;
             
             console.log('Login exitoso - username:', request.session.username);
             

@@ -44,4 +44,12 @@ module.exports = class Usuario {
         return db.execute('SELECT * FROM users WHERE email = ?', [email]);
     }
 
+    // Obtener privilegios de un usuario
+    static getPrivilegios(id_user) {
+        return db.execute(
+            `SELECT privilegio FROM tiene t, roles r, otorga o, privilegios p
+            WHERE id_user=? AND t.id_rol=r.id AND r.id=o.id_rol AND id_privilegio=p.id`, 
+            [id_user]);
+    }
+
 }

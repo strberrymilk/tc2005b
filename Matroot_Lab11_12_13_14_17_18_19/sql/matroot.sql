@@ -55,20 +55,39 @@ INSERT INTO `material` (`id_material`, `title`, `description`, `pdf_link`, `id_u
 CREATE TABLE `otorga` (
   `id_rol` int(11) NOT NULL,
   `id_privilegio` int(11) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `otorga`
+--
+
+INSERT INTO `otorga` (`id_rol`, `id_privilegio`, `created_at`) VALUES
+(1, 1, '2026-03-10 15:47:05'),
+(1, 2, '2026-03-10 15:47:05'),
+(1, 3, '2026-03-10 16:30:05'),
+(2, 1, '2026-03-10 15:47:16');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `privileges`
+-- Estructura de tabla para la tabla `privilegios`
 --
 
-CREATE TABLE `privileges` (
+CREATE TABLE `privilegios` (
   `id` int(11) NOT NULL,
-  `privilege` varchar(100) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `privilegio` varchar(100) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `privilegios`
+--
+
+INSERT INTO `privilegios` (`id`, `privilegio`, `created_at`) VALUES
+(1, 'ver_materiales', '2026-03-10 15:45:56'),
+(2, 'crear_materiales', '2026-03-10 15:45:56'),
+(3, 'actualizar_materiales', '2026-03-10 16:29:41');
 
 -- --------------------------------------------------------
 
@@ -82,6 +101,14 @@ CREATE TABLE `roles` (
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Volcado de datos para la tabla `roles`
+--
+
+INSERT INTO `roles` (`id`, `rol`, `created_at`) VALUES
+(1, 'administrador', '2026-03-10 15:45:23'),
+(2, 'usuario', '2026-03-10 15:45:23');
+
 -- --------------------------------------------------------
 
 --
@@ -91,8 +118,17 @@ CREATE TABLE `roles` (
 CREATE TABLE `tiene` (
   `id_user` int(11) NOT NULL,
   `id_rol` int(11) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `tiene`
+--
+
+INSERT INTO `tiene` (`id_user`, `id_rol`, `created_at`) VALUES
+(11, 1, '2026-03-10 15:46:32'),
+(12, 2, '2026-03-10 15:46:32'),
+(13, 2, '2026-03-10 16:30:27');
 
 -- --------------------------------------------------------
 
@@ -140,9 +176,9 @@ ALTER TABLE `otorga`
   ADD KEY `id_privilegio` (`id_privilegio`);
 
 --
--- Indices de la tabla `privileges`
+-- Indices de la tabla `privilegios`
 --
-ALTER TABLE `privileges`
+ALTER TABLE `privilegios`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -175,6 +211,18 @@ ALTER TABLE `material`
   MODIFY `id_material` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- AUTO_INCREMENT de la tabla `privilegios`
+--
+ALTER TABLE `privilegios`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT de la tabla `roles`
+--
+ALTER TABLE `roles`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
@@ -188,7 +236,7 @@ ALTER TABLE `users`
 -- Filtros para la tabla `otorga`
 --
 ALTER TABLE `otorga`
-  ADD CONSTRAINT `otorga_ibfk_2` FOREIGN KEY (`id_privilegio`) REFERENCES `privileges` (`id`),
+  ADD CONSTRAINT `otorga_ibfk_2` FOREIGN KEY (`id_privilegio`) REFERENCES `privilegios` (`id`),
   ADD CONSTRAINT `otorga_ibfk_3` FOREIGN KEY (`id_rol`) REFERENCES `roles` (`id`);
 
 --

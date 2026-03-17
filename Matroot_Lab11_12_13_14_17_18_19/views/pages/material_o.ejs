@@ -3,6 +3,15 @@
 
 <div class="container mx-auto p-8">
     <h1 class="text-3xl font-bold mb-6">Material elaborado por el equipo</h1>
+    
+    <% for (let privilegio of privilegios) { %>
+        <% if (privilegio.privilegio == 'crear_materiales') { %>
+            <div class="mb-4">
+                <a href="/material/new" class="btn btn-primary">Nuevo Material</a>
+            </div>
+        <% } %>
+    <% } %>
+    
     <div class="flex flex-wrap gap-6 justify-start">
         <% material.forEach(card => { %>
             <div class="card bg-base-100 w-72 shadow-md">

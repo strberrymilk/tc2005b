@@ -234,3 +234,101 @@ db.execute('SELECT * FROM users WHERE email = ?', [userEmail]);
 **10. Autenticación Basada en Riesgo**
 - Analiza ubicación, dispositivo y comportamiento
 - Solicita verificación adicional si detecta anomalías
+
+---
+
+## 📌 Lab 19: Control de Acceso Basado en Roles
+
+### ¿En qué consiste el control de acceso basado en roles?
+
+El **Control de Acceso Basado en Roles (RBAC - Role-Based Access Control)** es un modelo de seguridad que gestiona los permisos de los usuarios agrupándolos en **roles** según su función en la organización. En lugar de asignar permisos individuales a cada usuario, se asignan roles, y cada rol tiene un conjunto predefinido de privilegios.
+
+**Componentes principales:**
+- **Usuarios**: Individuos que acceden al sistema
+- **Roles**: Funciones o puestos (ej: Administrador, Editor, Usuario)
+- **Privilegios/Permisos**: Acciones específicas (ej: crear, leer, actualizar, eliminar)
+- **Sesiones**: El usuario activa un rol durante su sesión
+
+**Ejemplo:**
+- Un **Administrador** puede: crear, editar, eliminar y ver materiales
+- Un **Usuario Regular** puede: solo ver materiales
+- Un **Editor** puede: crear y editar materiales, pero no eliminar
+
+---
+
+### 📊 Sistemas de Control de Acceso: Análisis Comparativo
+
+#### 🟢 Sistema 1: **GitHub (Aplica RBAC)**
+
+**Descripción:**
+GitHub utiliza RBAC para gestionar permisos en repositorios y organizaciones. Los roles incluyen:
+- **Owner** (Propietario): Control total sobre la organización
+- **Member** (Miembro): Acceso básico a repositorios
+- **Outside Collaborator**: Acceso limitado a repositorios específicos
+- **Read, Write, Maintain, Admin**: Niveles de permisos en repositorios
+
+Cada rol tiene privilegios predefinidos (crear ramas, hacer merge, configurar webhooks, etc.).
+
+**✅ Ventajas:**
+- **Escalabilidad**: Fácil agregar nuevos usuarios con roles predefinidos
+- **Simplicidad**: No hay que configurar permisos usuario por usuario
+- **Auditoría clara**: Se sabe exactamente qué puede hacer cada rol
+- **Menos errores**: Roles estandarizados reducen asignaciones incorrectas
+- **Separación de responsabilidades**: Cada rol tiene funciones específicas
+
+**❌ Desventajas:**
+- **Flexibilidad limitada**: Si un usuario necesita permisos mixtos, puede ser complicado
+- **Roles rígidos**: Casos especiales pueden requerir roles adicionales
+- **Sobre-privilegios**: A veces se asigna un rol más alto solo por un privilegio específico
+- **Complejidad en jerarquías**: Muchos roles pueden confundir a los nuevos usuarios
+
+---
+
+#### 🔴 Sistema 2: **Sistema de Archivos UNIX/Linux (No aplica RBAC - usa DAC)**
+
+**Descripción:**
+Linux utiliza **DAC (Discretionary Access Control)** basado en propietarios y permisos. Cada archivo/directorio tiene:
+- **Propietario** (owner)
+- **Grupo** (group)
+- **Otros** (others)
+
+Los permisos se asignan individualmente: `rwx` (lectura, escritura, ejecución) para cada categoría.
+
+**Ejemplo:** `rwxr-xr--`
+- Propietario: lectura, escritura, ejecución
+- Grupo: lectura, ejecución
+- Otros: solo lectura
+
+Los permisos se gestionan directamente en cada recurso (archivo/directorio), no mediante roles centralizados.
+
+**✅ Ventajas:**
+- **Granularidad**: Control preciso sobre cada archivo
+- **Flexibilidad total**: Cada recurso puede tener permisos únicos
+- **Simplicidad conceptual**: Modelo fácil de entender (propietario-grupo-otros)
+- **Sin roles predefinidos**: No hay estructura rígida
+- **Control descentralizado**: El propietario decide quién accede
+
+**❌ Desventajas:**
+- **No escalable**: En sistemas grandes, gestionar permisos archivo por archivo es inmanejable
+- **Propenso a errores**: Configuración manual aumenta riesgo de permisos incorrectos
+- **Sin auditoría centralizada**: Difícil rastrear quién tiene acceso a qué
+- **Duplicación de esfuerzo**: Mismos permisos deben configurarse repetidamente
+- **Complejidad en equipos grandes**: Sin roles claros, es difícil coordinar permisos
+
+---
+
+### 📈 Comparación: RBAC vs DAC
+
+| Característica | RBAC (GitHub) | DAC (Linux) |
+|----------------|---------------|-------------|
+| **Escalabilidad** | ✅ Alta - roles reutilizables | ❌ Baja - configuración individual |
+| **Flexibilidad** | ❌ Limitada - roles predefinidos | ✅ Alta - permisos personalizados |
+| **Gestión** | ✅ Centralizada y consistente | ❌ Descentralizada y fragmentada |
+| **Seguridad** | ✅ Menor riesgo de sobre-privilegios | ❌ Mayor riesgo de configuraciones erróneas |
+| **Auditoría** | ✅ Fácil rastrear permisos por rol | ❌ Complejo revisar archivo por archivo |
+| **Mantenimiento** | ✅ Cambiar rol afecta a todos | ❌ Actualizar permisos uno por uno |
+| **Curva aprendizaje** | Moderada | Baja |
+| **Casos especiales** | ❌ Difícil manejar excepciones | ✅ Fácil crear permisos únicos |
+
+**Conclusión:**  
+RBAC es ideal para sistemas empresariales con muchos usuarios y recursos (GitHub, AWS, Active Directory), mientras que DAC funciona bien en entornos pequeños o donde se requiere control granular extremo (sistemas de archivos, bases de datos pequeñas).
