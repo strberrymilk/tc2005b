@@ -7,6 +7,8 @@ exports.getMaterial = (request, response, next) => {
         .then(([rows]) => {
             response.render('pages/material', {
                 material: rows,
+                csrfToken: request.csrfToken(),
+                isLoggedIn: request.session.isLoggedIn || false,
                 username: request.session.username || ''
             });
         })
@@ -22,6 +24,8 @@ exports.getMaterialOriginal = (request, response, next) => {
         .then(([rows]) => {
             response.render('pages/material_o', {
                 material: rows,
+                csrfToken: request.csrfToken(),
+                isLoggedIn: request.session.isLoggedIn || false,
                 username: request.session.username || ''
             });
         })
@@ -37,6 +41,8 @@ exports.getMaterialRecomendado = (request, response, next) => {
         .then(([rows]) => {
             response.render('pages/material_r', {
                 material: rows,
+                csrfToken: request.csrfToken(),
+                isLoggedIn: request.session.isLoggedIn || false,
                 username: request.session.username || ''
             });
         })
@@ -57,6 +63,8 @@ exports.getMaterialById = (request, response, next) => {
             }
             response.render('pages/material-detail', {
                 material: rows[0],
+                csrfToken: request.csrfToken(),
+                isLoggedIn: request.session.isLoggedIn || false,
                 username: request.session.username || ''
             });
         })

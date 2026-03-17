@@ -23,6 +23,7 @@
             <p class="text-sm mb-4">Ayuda a la comunidad compartiendo material educativo</p>
             
             <form action="/material" method="POST">
+                <input type="hidden" name="_csrf" value="<%= csrfToken %>">
 
                 <div class="form-control w-full">
                     <label class="label">

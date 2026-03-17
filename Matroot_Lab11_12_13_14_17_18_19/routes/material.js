@@ -7,6 +7,9 @@ const router = express.Router();
 // Importar el controlador
 const materialController = require('../controllers/material');
 
+// Importar middleware de autenticación
+const isAuth = require('../util/is-auth');
+
 // Ruta principal del módulo material: /material/
 router.get('/', materialController.getMaterial);
 
@@ -16,8 +19,8 @@ router.get('/matroot-original', materialController.getMaterialOriginal);
 // Tercera ruta del módulo: /material/recomendados
 router.get('/recomendados', materialController.getMaterialRecomendado);
 
-// Ruta POST para crear material
-router.post('/', materialController.postMaterial);
+// Ruta POST para crear material (protegida con autenticación)
+router.post('/', isAuth, materialController.postMaterial);
 
 // Ruta para ver detalle de un material específico (debe ir al final)
 router.get('/:id', materialController.getMaterialById);

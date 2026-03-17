@@ -26,6 +26,11 @@ app.use(session({
     saveUninitialized: false, // Asegura que no se guarde una sesión para una petición que no lo necesita
 }));
 
+// Protección CSRF
+const csrf = require('csurf');
+const csrfProtection = csrf();
+app.use(csrfProtection);
+
 // Forma nueva: app.use(express.urlencoded({ extended: false }));
 
 // Sirve archivos estáticos desde la carpeta public
@@ -55,6 +60,8 @@ app.use('/login', rutasLogin);
 // Ruta principal. "get" es un método similar a "use", pero solo responde a solicitudes GET
 app.get('/', (request, response) => {
     response.render('pages/home', {
+        csrfToken: request.csrfToken(),
+        isLoggedIn: request.session.isLoggedIn || false,
         username: request.session.username || ''
     });
 });
