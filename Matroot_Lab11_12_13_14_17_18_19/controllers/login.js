@@ -133,18 +133,14 @@ exports.postRegistro = (request, response, next) => {
             // Crear un objeto de nuestro modelo
             const nuevoUsuario = new Usuario(username, email, password, name, lastname_1, lastname_2, bio);
             
-            // Guardar el usuario y manejar la respuesta con promesas
-            return nuevoUsuario.save()
-                .then(() => {
-                    // Buscar el usuario recién creado para obtener su ID
-                    return Usuario.findByEmail(email);
-                })
+            // Guardar el usuario y su rol default dentro de una transaccion
+            return nuevoUsuario.saveWithDefaultRole()
+                .then((id_user) => Usuario.findById(id_user))
                 .then(([rows]) => {
                     if (rows.length > 0) {
                         const usuario = rows[0];
-                        // Asignar rol 'usuario' automáticamente y cargar privilegios
-                        return Usuario.asignarRol(usuario.id_user)
-                            .then(() => Usuario.getPrivilegios(usuario.id_user))
+                        // Cargar privilegios del rol creado en la transaccion
+                        return Usuario.getPrivilegios(usuario.id_user)
                             .then(([privilegios]) => ({ usuario, privilegios }));
                     }
                     return { usuario: null, privilegios: [] };

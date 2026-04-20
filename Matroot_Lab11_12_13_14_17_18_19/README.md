@@ -2,6 +2,74 @@
 
 > Aplicación web educativa desarrollada con Express.js y EJS
 
+## Labs 23, 25 y 28
+
+La implementacion de stored procedures, transacciones y triggers esta documentada en `docs/labs_23_25_28.md`.
+Las pruebas SQL estan en `sql/labs_23_25_28_pruebas.sql`.
+
+---
+
+## Lab 24: AJAX y JSON
+
+### Que importancia tiene AJAX en el desarrollo de RIA's (Rich Internet Applications)?
+
+AJAX es importante porque permite que una aplicacion web solicite y envie datos al servidor sin recargar toda la pagina. Esto hace que la experiencia sea mas fluida, parecida a una aplicacion de escritorio: se puede buscar, filtrar, guardar o actualizar informacion en partes especificas de la interfaz.
+
+En Matroot se usa esta idea en el buscador de materiales: el usuario escribe una busqueda, el navegador hace una peticion al servidor y la lista se actualiza con los resultados sin volver a cargar toda la vista.
+
+### Que implicaciones de seguridad tiene AJAX?
+
+AJAX no elimina los riesgos de seguridad; solo cambia la forma en que el cliente se comunica con el servidor. Algunas implicaciones importantes son:
+
+- Las rutas AJAX tambien pueden ser atacadas, igual que cualquier ruta normal.
+- Un usuario puede modificar las peticiones desde el navegador o herramientas como Postman.
+- Puede haber riesgo de SQL Injection si el servidor arma consultas con texto recibido del cliente.
+- Puede haber riesgo de XSS si se inserta HTML generado con datos no confiables.
+- Se debe proteger contra CSRF cuando la peticion modifica datos.
+
+Las validaciones de seguridad deben hacerse siempre del lado del servidor, porque el cliente puede ser manipulado. Las validaciones del lado del cliente ayudan a mejorar la experiencia del usuario, pero no deben considerarse una barrera de seguridad real.
+
+### Que es JSON?
+
+JSON (JavaScript Object Notation) es un formato ligero para representar e intercambiar datos. Usa una estructura basada en pares llave-valor y arreglos, por lo que es facil de leer para personas y facil de procesar para programas.
+
+Ejemplo:
+
+```json
+{
+  "id_material": 1,
+  "title": "Combinatoria basica",
+  "tags": ["matematicas", "conteo", "practica"]
+}
+```
+
+En aplicaciones web es comun usar JSON para enviar respuestas desde el servidor hacia JavaScript en el navegador.
+
+---
+
+## Lab 26: Servicios Web de Terceros
+
+### Que ventajas y desventajas tiene la integracion de tus aplicaciones web con servicios web desarrollados por terceros?
+
+Integrar servicios web de terceros permite agregar funcionalidades sin construir todo desde cero. Por ejemplo, una aplicacion puede usar servicios externos para autenticacion, pagos, mapas, almacenamiento, envio de correos, analiticas o inteligencia artificial.
+
+Ventajas:
+
+- Reduce tiempo de desarrollo porque se aprovechan soluciones ya construidas.
+- Permite acceder a funcionalidades especializadas que serian costosas de implementar.
+- Facilita escalar ciertas partes del sistema usando infraestructura externa.
+- Puede mejorar la calidad del producto si el proveedor tiene buena disponibilidad, documentacion y soporte.
+
+Desventajas:
+
+- La aplicacion depende de la disponibilidad y cambios del proveedor externo.
+- Puede haber costos variables segun uso, volumen de peticiones o planes de servicio.
+- Si la API cambia, se rompe o se vuelve de pago, la aplicacion puede requerir ajustes urgentes.
+- Hay implicaciones de privacidad y seguridad al enviar datos fuera del sistema propio.
+- Puede aumentar la latencia porque algunas operaciones dependen de llamadas por red.
+
+La integracion es util cuando el beneficio supera la dependencia agregada. Para usarla responsablemente conviene validar errores, proteger llaves de API, revisar permisos, manejar timeouts y tener alternativas si el servicio falla.
+
 ---
 
 ## 📌 Lab 11: Express y Arquitectura MVC

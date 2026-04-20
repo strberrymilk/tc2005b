@@ -29,6 +29,40 @@ module.exports = class Usuario {
             });
     }
 
+    // Lab 25: crear usuario y asignar rol en una sola transaccion
+    saveWithDefaultRole(id_rol = 2) {
+        return bcrypt.hash(this.password, 12)
+            .then(async (password_hash) => {
+                const connection = await db.getConnection();
+
+                try {
+                    await connection.beginTransaction();
+
+                    const [result] = await connection.execute(
+                        'INSERT INTO users (username, email, password, name, lastname_1, lastname_2, bio) VALUES (?, ?, ?, ?, ?, ?, ?)',
+                        [this.username, this.email, password_hash, this.name, this.lastname_1, this.lastname_2, this.bio]
+                    );
+
+                    await connection.execute(
+                        'INSERT INTO tiene (id_user, id_rol) VALUES (?, ?)',
+                        [result.insertId, id_rol]
+                    );
+
+                    await connection.commit();
+                    return result.insertId;
+                } catch (err) {
+                    await connection.rollback();
+                    throw err;
+                } finally {
+                    connection.release();
+                }
+            })
+            .catch((err) => {
+                console.log(err);
+                throw err;
+            });
+    }
+
     // Obtener todos los usuarios
     static fetchAll() {
         return db.execute('SELECT * FROM users');
