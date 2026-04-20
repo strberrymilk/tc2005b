@@ -48,4 +48,12 @@ module.exports = class Material {
         return db.execute('DELETE FROM material WHERE id_material = ?', [id]);
     }
 
+    // Buscar materiales por título o descripción
+    static buscar(nombre) {
+        return db.execute(
+            'SELECT * FROM material WHERE title LIKE ? OR description LIKE ?',
+            ['%' + nombre + '%', '%' + nombre + '%']
+        );
+    }
+
 }

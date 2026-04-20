@@ -78,6 +78,18 @@ exports.getMaterialById = (request, response, next) => {
         });
 };
 
+// Controlador AJAX para buscar materiales por título o descripción
+exports.getBuscar = (request, response, next) => {
+    Material.buscar(request.params.nombre)
+        .then(([material]) => {
+            return response.status(200).json({ material: material });
+        })
+        .catch(err => {
+            console.log(err);
+            return response.status(500).json({ message: err.stack });
+        });
+};
+
 // Controlador para crear nuevo material
 exports.postMaterial = (request, response, next) => {
     console.log('=== POST MATERIAL ===');
@@ -99,7 +111,8 @@ exports.postMaterial = (request, response, next) => {
         title.trim(), 
         description.trim(), 
         pdf_link.trim(), 
-        image_link ? image_link.trim() : null
+        image_link ? image_link.trim() : null,
+        request.session.userId || null
     );
     
     console.log('Intentando guardar material:', nuevoMaterial);

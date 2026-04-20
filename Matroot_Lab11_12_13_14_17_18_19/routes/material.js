@@ -24,6 +24,9 @@ router.get('/recomendados', isAuth, canView, materialController.getMaterialRecom
 // Ruta POST para crear material (protegida con autenticación)
 router.post('/', isAuth, canCreate, materialController.postMaterial);
 
+// Ruta AJAX para buscar materiales (debe ir antes de /:id)
+router.get('/buscar/:nombre', isAuth, canView, materialController.getBuscar);
+
 // Ruta para ver detalle de un material específico (debe ir al final)
 router.get('/:id', isAuth, canView, materialController.getMaterialById);
 

@@ -142,11 +142,21 @@ exports.postRegistro = (request, response, next) => {
                 .then(([rows]) => {
                     if (rows.length > 0) {
                         const usuario = rows[0];
-                        // Guardar información en la sesión
+                        // Asignar rol 'usuario' automáticamente y cargar privilegios
+                        return Usuario.asignarRol(usuario.id_user)
+                            .then(() => Usuario.getPrivilegios(usuario.id_user))
+                            .then(([privilegios]) => ({ usuario, privilegios }));
+                    }
+                    return { usuario: null, privilegios: [] };
+                })
+                .then(({ usuario, privilegios }) => {
+                    if (usuario) {
+                        // Guardar información en la sesión con privilegios
                         request.session.isLoggedIn = true;
                         request.session.username = usuario.username;
                         request.session.userId = usuario.id_user;
                         request.session.email = usuario.email;
+                        request.session.privilegios = privilegios;
                 
                         console.log('Sesión guardada con username:', request.session.username);
                         
@@ -163,7 +173,7 @@ exports.postRegistro = (request, response, next) => {
                             });
                         });
                     }
-                    return Promise.resolve(); // Retornar promesa resuelta si no hay usuario
+                    return Promise.resolve();
                 })
                 .then(() => {
                     // Recuperar todos los usuarios para obtener el total
@@ -207,8 +217,8 @@ exports.postRegistro = (request, response, next) => {
         });
 };
 
-exports.getLogout = (request, response, next) => {
+exports.getLogout = (request, response, next) => { // eslint-disable-line
     request.session.destroy(() => {
-        response.redirect('/users/login'); // Este código se ejecuta cuando la sesión se elimina.
+        response.redirect('/login'); // Este código se ejecuta cuando la sesión se elimina.
     });
 };

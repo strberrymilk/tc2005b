@@ -52,4 +52,12 @@ module.exports = class Usuario {
             [id_user]);
     }
 
+    // Asignar rol a un usuario (por defecto rol 'usuario' id=2)
+    static asignarRol(id_user, id_rol = 2) {
+        return db.execute(
+            'INSERT INTO tiene (id_user, id_rol) VALUES (?, ?)',
+            [id_user, id_rol]
+        );
+    }
+
 }

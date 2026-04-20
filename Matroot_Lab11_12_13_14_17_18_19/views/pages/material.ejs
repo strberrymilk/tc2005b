@@ -1,9 +1,116 @@
 <%- include('../includes/head') %>
 <%- include('../includes/navbar') %>
 
-<div>
-    <h1 class="text-3xl font-bold mb-6">Material</h1>
+<div class="max-w-6xl mx-auto px-6 py-10">
+
+    <!-- Header -->
+    <div class="mb-8">
+        <h1 class="text-4xl font-bold">Material educativo</h1>
+        <p class="text-base-content/60 mt-1">Explora los recursos compartidos por la comunidad Matroot</p>
+    </div>
+
+    <!-- Buscador -->
+    <label class="input input-bordered flex items-center gap-2 max-w-lg mb-8">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35M17 11A6 6 0 1 1 5 11a6 6 0 0 1 12 0z"/>
+        </svg>
+        <input
+            type="text"
+            id="buscar"
+            placeholder="Buscar por título o descripción..."
+            class="grow"
+        />
+        <span id="spinner" class="loading loading-spinner loading-xs hidden"></span>
+    </label>
+
+    <!-- Grid de cards -->
+    <div id="lista" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <% if (material.length === 0) { %>
+            <div class="col-span-full text-center py-20 text-base-content/40">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 mx-auto mb-4 opacity-30" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+                <p class="text-lg">Aún no hay material disponible</p>
+            </div>
+        <% } %>
+        <% for (let item of material) { %>
+            <div class="card bg-base-200 shadow-md hover:shadow-xl transition-shadow">
+                <% if (item.image_link) { %>
+                    <figure class="h-40 overflow-hidden">
+                        <img src="<%= item.image_link %>" alt="<%= item.title %>" class="w-full h-full object-cover" />
+                    </figure>
+                <% } else { %>
+                    <div class="h-40 bg-primary/10 flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-primary/30" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                        </svg>
+                    </div>
+                <% } %>
+                <div class="card-body">
+                    <h2 class="card-title text-lg line-clamp-2"><%= item.title %></h2>
+                    <p class="text-base-content/60 text-sm line-clamp-3"><%= item.description %></p>
+                    <div class="card-actions justify-end mt-2">
+                        <a href="/material/<%= item.id_material %>" class="btn btn-primary btn-sm">Ver material</a>
+                    </div>
+                </div>
+            </div>
+        <% } %>
+    </div>
 </div>
+
+<script>
+    const buscar = document.getElementById('buscar');
+    const spinner = document.getElementById('spinner');
+
+    function buildCard(item) {
+        const imagen = item.image_link
+            ? `<figure class="h-40 overflow-hidden">
+                <img src="${item.image_link}" alt="${item.title}" class="w-full h-full object-cover" />
+               </figure>`
+            : `<div class="h-40 bg-primary/10 flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-primary/30" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+               </div>`;
+
+        return `<div class="card bg-base-200 shadow-md hover:shadow-xl transition-shadow">
+            ${imagen}
+            <div class="card-body">
+                <h2 class="card-title text-lg line-clamp-2">${item.title}</h2>
+                <p class="text-base-content/60 text-sm line-clamp-3">${item.description}</p>
+                <div class="card-actions justify-end mt-2">
+                    <a href="/material/${item.id_material}" class="btn btn-primary btn-sm">Ver material</a>
+                </div>
+            </div>
+        </div>`;
+    }
+
+    buscar.onkeyup = () => {
+        const query = buscar.value.trim();
+        if (query === '') {
+            location.reload();
+            return;
+        }
+        spinner.classList.remove('hidden');
+        fetch(`/material/buscar/${encodeURIComponent(query)}`, { method: 'GET' })
+            .then(res => res.json())
+            .then(data => {
+                spinner.classList.add('hidden');
+                const lista = document.getElementById('lista');
+                if (data.material.length === 0) {
+                    lista.innerHTML = `<div class="col-span-full text-center py-20 text-base-content/40">
+                        <p class="text-lg">Sin resultados para "<strong>${query}</strong>"</p>
+                    </div>`;
+                    return;
+                }
+                lista.innerHTML = data.material.map(buildCard).join('');
+            })
+            .catch(err => {
+                spinner.classList.add('hidden');
+                console.error(err);
+            });
+    };
+</script>
 
 <%- include('../includes/footer') %>
 </body>
