@@ -1,0 +1,32 @@
+
+> nucleo-qro@0.1.0 dev
+> next dev
+
+   ▲ Next.js 15.5.15
+   - Local:        http://localhost:3000
+   - Network:      http://10.25.71.244:3000
+   - Environments: .env.local
+
+ ✓ Starting...
+ ✓ Ready in 9s
+ ○ Compiling /middleware ...
+ ✓ Compiled /middleware in 4.9s (168 modules)
+ ○ Compiling / ...
+/*! 🌼 daisyUI 5.5.19 */
+ ✓ Compiled /ingresar in 32.5s (681 modules)
+ GET / 200 in 8473ms
+ ✓ Compiled in 3.8s (261 modules)
+ GET / 200 in 275ms
+ GET / 200 in 479ms
+ GET /ingresar 200 in 205ms
+ ✓ Compiled in 699ms (261 modules)
+ ○ Compiling /icon.svg ...
+ ✓ Compiled /icon.svg in 2.1s (437 modules)
+ GET /icon.svg?b56cd1ac0baad9ca 200 in 2747ms
+ ○ Compiling /api/auth/google ...
+ ✓ Compiled /api/auth/google in 3.9s (748 modules)
+ GET /api/auth/google 307 in 4637ms
+ ○ Compiling /api/auth/login ...
+ ✓ Compiled /api/auth/login in 1404ms (750 modules)
+ POST /api/auth/login 401 in 2507ms
+[?25h
